@@ -5554,7 +5554,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "zone"
 			position = { x = 95 y = 35 }
-			size = { width = 164 height = 210 } # 改
+			size = { width = 164 height = 250 } # 改
 			verticalScrollbar = "right_vertical_slider_thick"
 			smooth_scrolling = yes
 			background = {
@@ -5565,7 +5565,7 @@ guiTypes = {
 			buttonType = {
 				name = "zone_info_button"
 				position = { x = 0 y = 0 }
-				size = { x = 164 y = 210 } # 改
+				size = { x = 164 y = 250 } # 改
 				quadTextureSprite = "GFX_district_hover"
 				clicksound = "menu_slide_open"
 			}
@@ -5573,7 +5573,7 @@ guiTypes = {
 				name = "selection_highlight"
 				spriteType = "GFX_glow_tile_orange_no_padding"
 				position = { x = 0 y = 0 }
-				size = { x = 164 y = 210 } # 改
+				size = { x = 164 y = 250 } # 改
 				alwaysTransparent = yes
 			}
 			# Buildings
@@ -5641,7 +5641,7 @@ guiTypes = {
 	# 3 width
 	containerWindowType = {
 		name = "planet_district_entry_width_3"
-		size = { width = 861 height = 178 }
+		size = { width = 861 height = 285 }
 		background = {
 			name = "districts_window_background"
 			spriteType = "GFX_dark_area"
@@ -5650,12 +5650,12 @@ guiTypes = {
 		buttonType = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
-			size = { x = 861 y = 178 }
+			size = { x = 861 y = 285 }
 			alwaysTransparent = yes
 		}
 		buttonType = {
 			name = "district_button"
-			size = { x = 861 y = 178 }
+			size = { x = 861 y = 285 }
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}
@@ -5738,7 +5738,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "district_box"
 			size = { width = -5 height = 28 }
-			position = { x = 62 y = 143 }
+			position = { x = 62 y = 250 }
 			gridBoxType = {
 				name = "district_box_grid"
 				position = { x = 0 y = 0 }
@@ -5754,7 +5754,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "planet_district_cap_container"
 			size = { width = 46 height = 28 }
-			position = { x = 8 y = 143 }
+			position = { x = 8 y = 250 }
 			iconType = {
 				name = "cap_background"
 				spriteType = "GFX_district_any_big"
@@ -5777,7 +5777,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "zone"
 			position = { x = 95 y = 35 }
-			size = { width = 164 height = 103 }
+			size = { width = 164 height = 250 }
 			verticalScrollbar = "right_vertical_slider_thick"
 			smooth_scrolling = yes
 			background = {
@@ -5788,7 +5788,7 @@ guiTypes = {
 			buttonType = {
 				name = "zone_info_button"
 				position = { x = 0 y = 0 }
-				size = { x = 164 y = 103 }
+				size = { x = 164 y = 250 }
 				quadTextureSprite = "GFX_district_hover"
 				clicksound = "menu_slide_open"
 			}
@@ -5796,7 +5796,7 @@ guiTypes = {
 				name = "selection_highlight"
 				spriteType = "GFX_glow_tile_orange_no_padding"
 				position = { x = 0 y = 0 }
-				size = { x = 164 y = 103 }
+				size = { x = 164 y = 250 }
 				alwaysTransparent = yes
 			}
 			# Buildings
@@ -5808,7 +5808,7 @@ guiTypes = {
 				slotSize = { width = 52 height = 53 }
 				add_horizontal = yes
 				max_slots_horizontal = 3
-				max_slots_vertical = 2
+				max_slots_vertical = 4
 			}
 			iconType = {
 				name = "progressbar"
@@ -5855,7 +5855,7 @@ guiTypes = {
 			position = { x = 268 y = 35 }
 			size = { width = 590 height = -10 }
 			format = "UPPER_LEFT"
-			slotSize = { width = 295 height = 53 }
+			slotSize = { width = 295 height = 108 }
 			add_horizontal = yes
 			max_slots_horizontal = 2
 			max_slots_vertical = 3

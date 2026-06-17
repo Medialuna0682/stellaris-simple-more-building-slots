@@ -5202,7 +5202,7 @@ guiTypes = {
 	# 1 width
 	containerWindowType = {
 		name = "planet_district_entry_width_1"
-		size = { width = 285 height = 225 } # 改动
+		size = { width = 285 height = 285 } # 改动
 		background = {
 			name = "districts_window_background"
 			spriteType = "GFX_dark_area"
@@ -5212,13 +5212,13 @@ guiTypes = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
 			# size = { x = 285 y = 178 } # 跟 planet_district_entry 的 size 保持一致
-			size = { x = 285 y = 225 }
+			size = { x = 285 y = 285 }
 			alwaysTransparent = yes
 		}
 		buttonType = { # 和按钮
 			name = "district_button"
 			# size = { x = 285 y = 178 } # 跟 planet_district_entry 的 size 保持一致
-			size = { x = 285 y = 225 }
+			size = { x = 285 y = 285 }
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}
@@ -5342,7 +5342,7 @@ guiTypes = {
 		containerWindowType = { # 下方特化区划的建筑格子区域
 			name = "zone"
 			# size = { width = 185 height = 77 }
-			size = { width = 185 height = 134 } # 猛猛改
+			size = { width = 185 height = 220 } # 猛猛改
 			position = { x = 91 y = 49 }
 			clipping = no
 			background = {
@@ -5354,7 +5354,7 @@ guiTypes = {
 				name = "zone_info_button"
 				position = { x = 0 y = 0 }
 				# size = { x = 185 y = 77 }
-				size = { x = 185 y = 134 } # 跟 zone 的 size 保持一致
+				size = { x = 185 y = 220 } # 跟 zone 的 size 保持一致
 				quadTextureSprite = "GFX_district_hover"
 				clicksound = "menu_slide_open"
 			}
@@ -5362,7 +5362,7 @@ guiTypes = {
 				name = "selection_highlight"
 				spriteType = "GFX_glow_tile_orange_no_padding"
 				position = { x = 0 y = 0 }
-				size = { x = 185 y = 134 } # 改
+				size = { x = 185 y = 220 } # 改
 				alwaysTransparent = yes
 			}
 			# Buildings

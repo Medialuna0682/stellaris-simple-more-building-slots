@@ -5202,21 +5202,23 @@ guiTypes = {
 	# 1 width
 	containerWindowType = {
 		name = "planet_district_entry_width_1"
-		size = { width = 285 height = 178 }
+		size = { width = 285 height = 225 } # 改动
 		background = {
 			name = "districts_window_background"
 			spriteType = "GFX_dark_area"
 			alwaysTransparent = yes
 		}
-		buttonType = {
+		buttonType = { # 按钮
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
-			size = { x = 285 y = 178 }
+			# size = { x = 285 y = 178 } # 跟 planet_district_entry 的 size 保持一致
+			size = { x = 285 y = 225 }
 			alwaysTransparent = yes
 		}
-		buttonType = {
+		buttonType = { # 和按钮
 			name = "district_button"
-			size = { x = 285 y = 178 }
+			# size = { x = 285 y = 178 } # 跟 planet_district_entry 的 size 保持一致
+			size = { x = 285 y = 225 }
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}
@@ -5296,10 +5298,11 @@ guiTypes = {
 			vertical_alignment = center
 			alwaysTransparent = yes
 		}
-		containerWindowType = {
+		containerWindowType = { # 下方特化区划建造区划数量信息（格子）
 			name = "district_box"
 			size = { width = -5 height = 28 }
-			position = { x = 62 y = 143 }
+			# position = { x = 62 y = 143 }
+			position = { x = 62 y = 188 } # 改了
 			gridBoxType = {
 				name = "district_box_grid"
 				position = { x = 0 y = 0 }
@@ -5312,10 +5315,11 @@ guiTypes = {
 			}
 		}
 		# Passed 30 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
-		containerWindowType = {
+		containerWindowType = { # 下方特化区划建造区划数量信息（文字）
 			name = "planet_district_cap_container"
 			size = { width = 46 height = 28 }
-			position = { x = 8 y = 143 }
+			# position = { x = 8 y = 143 }
+			position = { x = 8 y = 188 } # 改了
 			iconType = {
 				name = "cap_background"
 				spriteType = "GFX_district_any_big"
@@ -5335,9 +5339,10 @@ guiTypes = {
 			}
 		}
 		# Zone
-		containerWindowType = {
+		containerWindowType = { # 下方特化区划的建筑格子区域
 			name = "zone"
-			size = { width = 185 height = 77 }
+			# size = { width = 185 height = 77 }
+			size = { width = 185 height = 134 } # 猛猛改
 			position = { x = 91 y = 49 }
 			clipping = no
 			background = {
@@ -5345,10 +5350,11 @@ guiTypes = {
 				spriteType = "GFX_dark_area_cut_light"
 				alwaysTransparent = yes
 			}
-			buttonType = {
+			buttonType = { # 按钮是主要修改对象，记得跟区域大小保持一致
 				name = "zone_info_button"
 				position = { x = 0 y = 0 }
-				size = { x = 185 y = 77 }
+				# size = { x = 185 y = 77 }
+				size = { x = 185 y = 134 } # 跟 zone 的 size 保持一致
 				quadTextureSprite = "GFX_district_hover"
 				clicksound = "menu_slide_open"
 			}
@@ -5356,7 +5362,7 @@ guiTypes = {
 				name = "selection_highlight"
 				spriteType = "GFX_glow_tile_orange_no_padding"
 				position = { x = 0 y = 0 }
-				size = { x = 185 y = 77 }
+				size = { x = 185 y = 134 } # 改
 				alwaysTransparent = yes
 			}
 			# Buildings
@@ -5367,13 +5373,14 @@ guiTypes = {
 				format = "UPPER_LEFT"
 				slotSize = { width = 52 height = 60 }
 				add_horizontal = yes
-				max_slots_horizontal = 6
-				max_slots_vertical = 2
+				max_slots_horizontal = 3 # 6
+				max_slots_vertical = 4
 			}
-			iconType = {
+			iconType = { # 进度条
 				name = "progressbar"
 				spriteType = "GFX_zone_smaller_progressbar"
-				position = { x = 16 y = 64 }
+				# position = { x = 20 y = 64 }
+				position = { x = 16 y = 64 } # 进度条位置还是保留了
 				alwaysTransparent = yes
 			}
 			buttonType = {
@@ -5411,7 +5418,7 @@ guiTypes = {
 	# 2 width
 	containerWindowType = {
 		name = "planet_district_entry_width_2"
-		size = { width = 570 height = 178 }
+		size = { width = 570 height = 285 } # 改了
 		background = {
 			name = "districts_window_background"
 			spriteType = "GFX_dark_area"
@@ -5420,12 +5427,12 @@ guiTypes = {
 		buttonType = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
-			size = { x = 570 y = 178 }
+			size = { x = 570 y = 285 } # 改
 			alwaysTransparent = yes
 		}
 		buttonType = {
 			name = "district_button"
-			size = { x = 570 y = 178 }
+			size = { x = 570 y = 285 } # 改
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}
@@ -5508,7 +5515,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "district_box"
 			size = { width = -5 height = 28 }
-			position = { x = 62 y = 143 }
+			position = { x = 62 y = 250 } # 改
 			gridBoxType = {
 				name = "district_box_grid"
 				position = { x = 0 y = 0 }
@@ -5524,7 +5531,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "planet_district_cap_container"
 			size = { width = 46 height = 28 }
-			position = { x = 8 y = 143 }
+			position = { x = 8 y = 250 } # 改
 			iconType = {
 				name = "cap_background"
 				spriteType = "GFX_district_any_big"
@@ -5547,7 +5554,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "zone"
 			position = { x = 95 y = 35 }
-			size = { width = 164 height = 103 }
+			size = { width = 164 height = 210 } # 改
 			verticalScrollbar = "right_vertical_slider_thick"
 			smooth_scrolling = yes
 			background = {
@@ -5558,7 +5565,7 @@ guiTypes = {
 			buttonType = {
 				name = "zone_info_button"
 				position = { x = 0 y = 0 }
-				size = { x = 164 y = 103 }
+				size = { x = 164 y = 210 } # 改
 				quadTextureSprite = "GFX_district_hover"
 				clicksound = "menu_slide_open"
 			}
@@ -5566,7 +5573,7 @@ guiTypes = {
 				name = "selection_highlight"
 				spriteType = "GFX_glow_tile_orange_no_padding"
 				position = { x = 0 y = 0 }
-				size = { x = 164 y = 103 }
+				size = { x = 164 y = 210 } # 改
 				alwaysTransparent = yes
 			}
 			# Buildings
@@ -5577,8 +5584,8 @@ guiTypes = {
 				format = "UPPER_LEFT"
 				slotSize = { width = 52 height = 53 }
 				add_horizontal = yes
-				max_slots_horizontal = 3
-				max_slots_vertical = 2
+				max_slots_horizontal = 3 # 水平方向上最多显示 3 格，可以看成列数
+				max_slots_vertical = 4 # 竖直方向上最多显示 4 格 => 3 * 4 = 12
 			}
 			iconType = {
 				name = "progressbar"
@@ -5625,7 +5632,7 @@ guiTypes = {
 			position = { x = 268 y = 35 }
 			size = { width = 291 height = -10 }
 			format = "UPPER_LEFT"
-			slotSize = { width = 291 height = 53 }
+			slotSize = { width = 291 height = 108 } # 排列格子
 			add_horizontal = yes
 			max_slots_horizontal = 1
 			max_slots_vertical = 3
@@ -5865,24 +5872,27 @@ guiTypes = {
 	containerWindowType = {
 		name = "zone_entry"
 		position = { x = 0 y = 0 }
-		size = { width = 291 height = 50 }
+		# size = { width = 291 height = 50 }
+		size = { width = 291 height = 100 } # 我TM滚轮滚爆
 		background = {
 			name = "background"
 			spriteType = "GFX_dark_area"
 			alpha = 0.7
 		}
-		buttonType = {
+		buttonType = { # 按钮也要改
 			name = "zone_info_button"
 			position = { x = 0 y = 0 }
-			size = { x = 291 y = 49 }
+			# size = { x = 291 y = 49 } # 跟 zone_entry 的 size 保持一致
+			size = { x = 291 y = 99 }
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}
-		buttonType = {
+		buttonType = { # 这里也是，highlight 什么意思不用我多说了吧
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
 			position = { x = 0 y = 0 }
-			size = { x = 291 y = 50 }
+			# size = { x = 291 y = 50 }
+			size = { x = 291 y = 100 } # 改
 			alwaysTransparent = yes
 		}
 		instantTextBoxType = {
@@ -5905,7 +5915,7 @@ guiTypes = {
 			alwaysTransparent = yes
 		}
 		# Buildings
-		gridBoxType = {
+		gridBoxType = { # 建筑按钮排列
 			name = "buildings_box"
 			position = { x = 136 y = 0 }
 			size = { width = 156 height = 205 }
@@ -5913,7 +5923,7 @@ guiTypes = {
 			slotSize = { width = 52 height = 50 }
 			add_horizontal = yes
 			max_slots_horizontal = 3
-			max_slots_vertical = 1
+			max_slots_vertical = 2 # 改
 		}
 		buttonType = {
 			name = "zone_button"
@@ -5945,10 +5955,11 @@ guiTypes = {
 			vertical_alignment = center
 			alwaysTransparent = yes
 		}
-		iconType = {
+		iconType = { # 区划下方建造进度条显示
 			name = "progressbar"
 			spriteType = "GFX_zone_progressbar"
-			position = { x = 3 y = 40 }
+			# position = { x = 3 y = 40 }
+			position = { x = 3 y = 90 } # 大小是 285x10 所以 y 的位置是 100 - 10 = 90
 			alwaysTransparent = yes
 		}
 	}

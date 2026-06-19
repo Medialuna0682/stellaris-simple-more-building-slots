@@ -1604,7 +1604,7 @@ guiTypes = {
 				### Districts Container Window
 				containerWindowType = {
 					name = "districts_window"
-					size = { width = 570 height = 178 }
+					size = { width = 570 height = 285 }
 					position = { x = 10 y = 107 }
 					background = {
 						name = "districts_window_background"
@@ -1617,7 +1617,7 @@ guiTypes = {
 						position = { x = 0 y = 0 }
 						size = { width = 570 height = -10 }
 						format = "UPPER_LEFT"
-						slotSize = { width = 570 height = 170 }
+						slotSize = { width = 570 height = 280 }
 						add_horizontal = yes
 						max_slots_horizontal = 1
 						max_slots_vertical = 3
@@ -1625,7 +1625,7 @@ guiTypes = {
 				}
 				containerWindowType = {
 					name = "districts_grid_window"
-					size = { width = -10 height = 370 }
+					size = { width = -10 height = 265 }
 					position = { x = 10 y = -10 }
 					orientation = lower_left
 					origo = lower_left
@@ -1641,7 +1641,7 @@ guiTypes = {
 						position = { x = 5 y = 5 }
 						size = { width = 870 height = @[ district_rows * 182 ] }
 						format = "UPPER_LEFT"
-						slotSize = { width = 288 height = 182 }
+						slotSize = { width = 288 height = 225 }
 						add_horizontal = yes
 						max_slots_horizontal = 3
 						# max_slots_vertical = 1
@@ -5202,7 +5202,7 @@ guiTypes = {
 	# 1 width
 	containerWindowType = {
 		name = "planet_district_entry_width_1"
-		size = { width = 285 height = 285 } # 改动
+		size = { width = 285 height = 225 } # 改动
 		background = {
 			name = "districts_window_background"
 			spriteType = "GFX_dark_area"
@@ -5212,13 +5212,13 @@ guiTypes = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
 			# size = { x = 285 y = 178 } # 跟 planet_district_entry 的 size 保持一致
-			size = { x = 285 y = 285 }
+			size = { x = 285 y = 225 }
 			alwaysTransparent = yes
 		}
 		buttonType = { # 和按钮
 			name = "district_button"
 			# size = { x = 285 y = 178 } # 跟 planet_district_entry 的 size 保持一致
-			size = { x = 285 y = 285 }
+			size = { x = 285 y = 225 }
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}
@@ -5342,7 +5342,7 @@ guiTypes = {
 		containerWindowType = { # 下方特化区划的建筑格子区域
 			name = "zone"
 			# size = { width = 185 height = 77 }
-			size = { width = 185 height = 220 } # 猛猛改
+			size = { width = 185 height = 134 } # 猛猛改
 			position = { x = 91 y = 49 }
 			clipping = no
 			background = {
@@ -5354,7 +5354,7 @@ guiTypes = {
 				name = "zone_info_button"
 				position = { x = 0 y = 0 }
 				# size = { x = 185 y = 77 }
-				size = { x = 185 y = 220 } # 跟 zone 的 size 保持一致
+				size = { x = 185 y = 134 } # 跟 zone 的 size 保持一致
 				quadTextureSprite = "GFX_district_hover"
 				clicksound = "menu_slide_open"
 			}
@@ -5362,7 +5362,7 @@ guiTypes = {
 				name = "selection_highlight"
 				spriteType = "GFX_glow_tile_orange_no_padding"
 				position = { x = 0 y = 0 }
-				size = { x = 185 y = 220 } # 改
+				size = { x = 185 y = 134 } # 改
 				alwaysTransparent = yes
 			}
 			# Buildings
@@ -5371,7 +5371,7 @@ guiTypes = {
 				position = { x = 16 y = 13 }
 				size = { width = -16 height = 205 }
 				format = "UPPER_LEFT"
-				slotSize = { width = 52 height = 50 }
+				slotSize = { width = 52 height = 60 }
 				add_horizontal = yes
 				max_slots_horizontal = 3 # 6
 				max_slots_vertical = 4

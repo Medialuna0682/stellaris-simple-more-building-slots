@@ -9,7 +9,6 @@ A Stellaris mod that gives each planet zone **6** building slots (capital / city
 This repository is a **community-made compatibility update**. All credit for the original mod goes to its creator.
 
 - **Original mod (Steam Workshop):** https://steamcommunity.com/sharedfiles/filedetails/?id=3479726947
-- The "more building slots" mechanic builds on **TinyGrox**'s work — the mod is keyed off the `@TINYGROX_MAX_BUILDINGS` variable.
 
 This repository contains only a 4.4.x compatibility / bug-fix update of the above. It is not affiliated with or endorsed by the original author.
 
@@ -24,7 +23,7 @@ This repository contains only a 4.4.x compatibility / bug-fix update of the abov
 
 ## How it works
 
-Each zone sets both `max_buildings` and a `zone_building_slots_add` planet modifier to `@TINYGROX_MAX_BUILDINGS` (default 6). The mod's `common/zones/` files are named without the vanilla numeric prefix so they sort *after* the base-game files and override them by key; inline-script and `interface/` files override by matching the vanilla path.
+Each zone sets both `max_buildings` and a `zone_building_slots_add` planet modifier to a shared scripted variable (default 6). The mod's `common/zones/` files are named without the vanilla numeric prefix so they sort *after* the base-game files and override them by key; inline-script and `interface/` files override by matching the vanilla path.
 
 ## Compatibility notes
 

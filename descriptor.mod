@@ -1,7 +1,7 @@
-version="1.0.0"
+version="1.1.0"
 tags={
 	"Utilities"
+	"Buildings"
 }
-name="简单更多区划建筑槽位"
-supported_version="v4.*.*"
-remote_file_id="3479726947"
+name="Simple More District Building Slots (4.4 Update)"
+supported_version="v4.4.*"

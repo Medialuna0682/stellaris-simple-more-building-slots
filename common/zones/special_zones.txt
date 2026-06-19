@@ -1,4 +1,8 @@
-@TINYGROX_MAX_BUILDINGS = 6
+# Simple More Building Slots — re-synced from current vanilla common/zones/02_special_zones.txt.
+# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
+# max_buildings added where a zone grants slots but has no cap (arkship, variants).
+
+
 zone_payback_enlightenment = {
 	icon = "GFX_district_specialization_payback_enlightenment"
 	base_buildtime = @zone_buildtime
@@ -49,9 +53,8 @@ zone_payback_enlightenment = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_Buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -64,6 +67,7 @@ zone_payback_enlightenment = {
 	triggered_desc = {
 		text = zone_cannot_be_rebuilt
 	}
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_broken_shackles_memorial = {
@@ -106,11 +110,10 @@ zone_broken_shackles_memorial = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_amenities_add = 500
 		planet_civilians_unity_produces_add = 0.5
 	}
-	max_Buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -137,13 +140,14 @@ zone_broken_shackles_memorial = {
 	triggered_desc = {
 		text = zone_cannot_be_rebuilt
 	}
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_central_spire = {
 	icon = GFX_district_specialization_research
 
 	potential = { # planet scope
-		always = no
+		has_carrier_flag = central_spire_cleared
 	}
 
 	unlock = { # planet scope
@@ -169,9 +173,8 @@ zone_central_spire = {
 		planet_jobs_physics_research_produces_mult = 0.15
 		planet_jobs_society_research_produces_mult = 0.15
 		planet_jobs_engineering_research_produces_mult = 0.15
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_Buildings = @TINYGROX_MAX_BUILDINGS
 
 	ai_resource_production = {
 		physics_research = 12
@@ -196,4 +199,5 @@ zone_central_spire = {
 	triggered_desc = {
 		text = zone_cannot_be_rebuilt
 	}
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }

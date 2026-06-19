@@ -1,4 +1,8 @@
-@TINYGROX_MAX_BUILDINGS = 6
+# Simple More Building Slots — re-synced from current vanilla common/zones/01_habitat_zones.txt.
+# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
+# max_buildings added where a zone grants slots but has no cap (arkship, variants).
+
+
 zone_habitat_knights = {
 	icon = GFX_district_specialization_knight_commander
 	base_buildtime = @zone_buildtime
@@ -15,7 +19,7 @@ zone_habitat_knights = {
 			}
 		}
 		OR = {
-			has_planet_flag = toxic_knights_habitat
+			has_carrier_flag = toxic_knights_habitat
 			has_building = building_order_castle
 		}
 	}
@@ -30,7 +34,7 @@ zone_habitat_knights = {
 				}
 			}
 			OR = {
-				has_planet_flag = toxic_knights_habitat
+				has_carrier_flag = toxic_knights_habitat
 				has_building = building_order_castle
 			}
 		}
@@ -47,7 +51,7 @@ zone_habitat_knights = {
 		zone_fortress
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		habitat_urban
@@ -68,7 +72,7 @@ zone_habitat_knights = {
     }
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	inline_script = {
@@ -124,7 +128,7 @@ zone_habitat_hydroponics = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
@@ -161,7 +165,7 @@ zone_habitat_research = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
@@ -205,7 +209,7 @@ zone_habitat_research_unity = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	triggered_desc = {
@@ -215,4 +219,46 @@ zone_habitat_research_unity = {
 		text = zone_research_unity_triggered_desc
 	}
 	max_buildings = @TINYGROX_MAX_BUILDINGS
+}
+
+zone_habitat_rare_crystals = {
+	inline_script = {
+		script = zones/shared_rare_crystals_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	swap_type = district_hab_mining_rare_crystals
+	swap_type_weight = 5
+
+	zone_sets = {
+		habitat_minerals
+	}
+}
+
+zone_habitat_volatile_motes = {
+	inline_script = {
+		script = zones/shared_volatile_motes_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	swap_type = district_hab_energy_volatile_motes
+	swap_type_weight = 5
+
+	zone_sets = {
+		habitat_energy
+	}
+}
+
+zone_habitat_exotic_gases = {
+	inline_script = {
+		script = zones/shared_exotic_gases_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	swap_type = district_hab_energy_exotic_gases
+	swap_type_weight = 5
+
+	zone_sets = {
+		habitat_energy
+	}
 }

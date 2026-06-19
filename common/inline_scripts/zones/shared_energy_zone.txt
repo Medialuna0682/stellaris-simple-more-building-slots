@@ -1,10 +1,15 @@
+# Simple More Building Slots: slots -> @TINYGROX_MAX_BUILDINGS, max_buildings cap added if missing (vanilla shared_energy_zone.txt).
 icon = GFX_district_specialization_energy
 base_buildtime = @zone_buildtime
 
 resources = {
 	category = planet_zones
-	cost = {
-		minerals = @zone_cost
+	inline_script = {
+		script = buildings/nomadic_cost_switcher
+		REGULAR_RESOURCE = minerals
+		NOMADIC_RESOURCE = alloys
+		COST = @zone_cost
+		NOMADIC_COST_MULT = 0.5
 	}
 }
 
@@ -46,5 +51,6 @@ inline_script = {
 planet_modifier = {
 	zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 }
-max_buildings = @TINYGROX_MAX_BUILDINGS
+
 ai_priority = 5
+max_buildings = @TINYGROX_MAX_BUILDINGS

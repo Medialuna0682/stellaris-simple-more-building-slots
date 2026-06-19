@@ -1,9 +1,6 @@
-# Arkship (Nomad) Planet District Zones — building-slot override for 简单更多区划建筑槽位
-#
-# Loads alphabetically after vanilla 05_arkship_zones.txt, so these keys override it.
-# Only the zones that declare zone_building_slots_add directly are redefined here;
-# the script-based arkship zones are handled via the overridden shared inline scripts.
-@TINYGROX_MAX_BUILDINGS = 6
+# Simple More Building Slots — re-synced from current vanilla common/zones/05_arkship_zones.txt.
+# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
+# max_buildings added where a zone grants slots but has no cap (arkship, variants).
 
 # Urban Zones
 zone_ark_research_unity = {
@@ -77,9 +74,8 @@ zone_ark_research_unity = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	triggered_desc = {
 		trigger = {
@@ -89,6 +85,7 @@ zone_ark_research_unity = {
 	}
 
 	ai_priority = 8
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_ark_industrial = {
@@ -161,9 +158,8 @@ zone_ark_industrial = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	triggered_desc = {
 		trigger = {
@@ -173,6 +169,7 @@ zone_ark_industrial = {
 	}
 
 	ai_priority = 8
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_ark_research_unity_gestalt = {
@@ -243,9 +240,8 @@ zone_ark_research_unity_gestalt = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	triggered_desc = {
 		trigger = {
@@ -255,6 +251,7 @@ zone_ark_research_unity_gestalt = {
 	}
 
 	ai_priority = 8
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_ark_foundry = {
@@ -321,9 +318,8 @@ zone_ark_foundry = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	triggered_desc = {
 		trigger = {
@@ -333,9 +329,175 @@ zone_ark_foundry = {
 	}
 
 	ai_priority = 8
+	max_buildings = @TINYGROX_MAX_BUILDINGS
+}
+
+# Generator Zones
+
+# Also accepts zone_energy in 00_zones.txt
+
+zone_ark_engine_bypass = {
+	icon = GFX_district_specialization_ark_reactor
+	inline_script = {
+		script = zones/shared_ark_reactor_zone
+		AMOUNT = 50
+	}
+
+	potential = { # planet scope
+		owner? = {
+			has_technology = tech_afterburners_1
+		}
+	}
+
+	show_in_tech = tech_afterburners_1
+	show_tech_unlock_if = { is_nomadic = yes }
+
+	planet_modifier = {
+		planet_technician_energy_produces_add = -2
+		ship_speed_from_technicians = 0.05 #does nothing by itself, check the technician job script
+	}
+
+	swap_type = district_ark_engine_bypass
+	swap_type_weight = 5
+
+	zone_sets = {
+		ark_reactor
+	}
+}
+
+zone_ark_shield_overloader = {
+	icon = GFX_district_specialization_exotic_gases
+	inline_script = {
+		script = zones/shared_ark_reactor_zone
+		AMOUNT = 50
+	}
+
+	potential = { # planet scope
+		owner? = {
+			has_technology = tech_shields_2
+		}
+	}
+
+	show_in_tech = tech_shields_2
+	show_tech_unlock_if = { is_nomadic = yes }
+
+	planet_modifier = {
+		planet_technician_exotic_gases_upkeep_add = 0.02
+		planet_technician_energy_produces_add = -1
+		ship_shield_from_technicians = 0.02 #does nothing by itself, check the technician job script
+		ship_shield_regen_from_technicians = 0.02
+	}
+
+	swap_type = district_ark_shield_overloader
+	swap_type_weight = 5
+
+	zone_sets = {
+		ark_reactor
+	}
+}
+
+zone_ark_reactor_physics = {
+	inline_script = {
+		script = zones/shared_research_physics_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	potential = { # planet scope
+		hidden_trigger = {
+			owner? = {
+				has_technology = tech_physics_1
+			}
+		}
+	}
+
+	show_in_tech = tech_physics_1
+	show_tech_unlock_if = { is_nomadic = yes }
+
+	swap_type = district_ark_generator_physics
+	swap_type_weight = 5
+
+	zone_sets = {
+		ark_reactor
+	}
+
+	included_building_sets = {
+		generator
+		fallen_empire_generator
+		generator_automation
+	}
+
+	ai_priority = 15
+
+	ai_weight_coefficient = 1.1
 }
 
 # Farming Zones
+
+zone_ark_food = {
+	inline_script = {
+		script = zones/shared_food_zone
+		AMOUNT = @base_rural_nomad_district_jobs
+	}
+
+	zone_sets = {
+		ark_basic
+	}
+
+	show_in_tech = tech_food_processing_1
+
+	swap_type = district_ark_food
+	swap_type_weight = 5
+}
+
+zone_ark_farm_society = {
+	inline_script = {
+		script = zones/shared_research_society_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	potential = { # planet scope
+		hidden_trigger = {
+			owner? = {
+				has_technology = tech_society_1
+			}
+		}
+	}
+
+	show_in_tech = tech_society_1
+	show_tech_unlock_if = { is_nomadic = yes }
+
+	zone_sets = {
+		ark_basic
+	}
+
+	included_building_sets = {
+		society
+		zoo
+		medical
+	}
+
+	swap_type = district_ark_basic_society
+	swap_type_weight = 5
+
+	ai_priority = 15
+
+	ai_weight_coefficient = 1.1
+}
+
+zone_ark_harvest = {
+	inline_script = {
+		script = zones/shared_ark_harvest_zone
+		AMOUNT = @base_rural_district_jobs
+	}
+
+	show_in_tech = tech_nomads_mechanized_mining
+	show_tech_unlock_if = { is_nomadic = yes }
+
+	zone_sets = {
+		ark_basic
+	}
+}
+
 zone_ark_waystation_trade = {
 	icon = GFX_district_specialization_trade
 	base_buildtime = @zone_buildtime
@@ -366,9 +528,8 @@ zone_ark_waystation_trade = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	ai_weight_coefficient = 0.8
 	ai_priority = 10
@@ -385,9 +546,11 @@ zone_ark_waystation_trade = {
 
 	swap_type = district_ark_waystation_trade
 	swap_type_weight = 5
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 # Military Zones
+
 zone_ark_missile_silos = {
 	icon = GFX_district_specialization_missile
 	base_buildtime = @zone_buildtime
@@ -425,11 +588,10 @@ zone_ark_missile_silos = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.15
 		weapon_explosive_from_soldiers = 0.05
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		ark_military
@@ -440,6 +602,7 @@ zone_ark_missile_silos = {
 	}
 
 	ai_priority = 5
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_ark_ammunition_lines = {
@@ -479,11 +642,10 @@ zone_ark_ammunition_lines = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.15
 		weapon_kinetic_from_soldiers = 0.05
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		ark_military
@@ -494,6 +656,7 @@ zone_ark_ammunition_lines = {
 	}
 
 	ai_priority = 5
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_ark_laser_capacitors = {
@@ -533,11 +696,10 @@ zone_ark_laser_capacitors = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.15
 		weapon_energy_from_soldiers = 0.05
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		ark_military
@@ -548,6 +710,7 @@ zone_ark_laser_capacitors = {
 	}
 
 	ai_priority = 5
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_ark_flight_decks = {
@@ -587,11 +750,10 @@ zone_ark_flight_decks = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.15
 		weapon_strike_craft_from_soldiers = 0.05
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		ark_military
@@ -602,6 +764,28 @@ zone_ark_flight_decks = {
 	}
 
 	ai_priority = 5
+	max_buildings = @TINYGROX_MAX_BUILDINGS
+}
+
+zone_ark_military_eco = {
+	inline_script = {
+		script = zones/shared_ark_foundry_zone
+		AMOUNT = @scaling_district_2_jobs
+		LARGE_AMOUNT = @scaling_district_1_job
+	}
+
+	show_in_tech = tech_basic_industry
+	show_tech_unlock_if = {
+		is_nomadic = yes
+		NOT = { has_origin = origin_forever_cruise }
+	}
+
+	swap_type = district_ark_military_industrial
+	swap_type_weight = 5
+
+	zone_sets = {
+		ark_military
+	}
 }
 
 zone_ark_shipwright = {
@@ -643,12 +827,11 @@ zone_ark_shipwright = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.25
 		naval_cap_from_shipwright = 2
 		ship_build_speed_from_shipwright = 0.015
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		ark_military
@@ -669,4 +852,176 @@ zone_ark_shipwright = {
 	}
 
 	ai_priority = 5
+	max_buildings = @TINYGROX_MAX_BUILDINGS
+}
+
+zone_ark_military_engineering = {
+	inline_script = {
+		script = zones/shared_research_engineering_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	potential = { # planet scope
+		hidden_trigger = {
+			owner? = {
+				has_technology = tech_engineering_1
+			}
+		}
+	}
+
+	show_in_tech = tech_engineering_1
+	show_tech_unlock_if = {
+		is_nomadic = yes
+		NOT = { has_origin = origin_forever_cruise }
+	}
+
+	swap_type = district_ark_military_engineering
+	swap_type_weight = 5
+
+	zone_sets = {
+		ark_military
+	}
+
+	included_building_sets = {
+		fortress
+	}
+
+	ai_priority = 15
+
+	ai_weight_coefficient = 1.1
+}
+
+# Origin-Specific Zones
+
+zone_ark_forever_cruise_passenger = {
+	icon = GFX_district_specialization_forever_cruise_passenger
+	inline_script = {
+		script = zones/shared_ark_forever_cruise_passenger_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	zone_sets = {
+		ark_forever_cruise
+	}
+}
+
+zone_ark_forever_cruise_crew = {
+	icon = GFX_district_specialization_forever_cruise_crew
+	inline_script = {
+		script = zones/shared_ark_forever_cruise_crew_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	zone_sets = {
+		ark_forever_cruise
+	}
+}
+
+zone_ark_forever_cruise_engineering = {
+	inline_script = {
+		script = zones/shared_research_engineering_zone
+		AMOUNT = @scaling_district_1_job
+	}
+
+	potential = { # planet scope
+		hidden_trigger = {
+			owner? = {
+				has_technology = tech_engineering_1
+			}
+		}
+	}
+
+	show_in_tech = tech_engineering_1
+	show_tech_unlock_if = {
+		is_nomadic = yes
+		has_origin = origin_forever_cruise
+	}
+
+	swap_type = district_ark_forever_cruise_engineering
+	swap_type_weight = 5
+
+	zone_sets = {
+		ark_forever_cruise
+	}
+
+	included_building_sets = {
+		ark_forever_cruise_passengers
+		ark_forever_cruise_crew
+	}
+
+	ai_priority = 15
+
+	ai_weight_coefficient = 1.1
+}
+
+zone_ark_forever_cruise_city_passenger = {
+	icon = GFX_district_specialization_forever_cruise_city_passenger
+	inline_script = {
+		script = zones/shared_ark_forever_cruise_passenger_zone
+		AMOUNT = @doubled_scaling_district_1_job
+	}
+
+	zone_sets = {
+		ark_forever_cruise_city
+	}
+}
+
+zone_ark_forever_cruise_city_crew = {
+	icon = GFX_district_specialization_forever_cruise_city_crew
+	inline_script = {
+		script = zones/shared_ark_forever_cruise_crew_zone
+		AMOUNT = @doubled_scaling_district_1_job
+	}
+
+	zone_sets = {
+		ark_forever_cruise_city
+	}
+}
+
+zone_ark_forever_cruise_city_mixed = {
+	icon = GFX_district_specialization_forever_cruise_city_mixed
+	inline_script = {
+		script = zones/shared_ark_forever_cruise_city_mixed_zone
+		AMOUNT = @scaling_district_2_jobs
+	}
+
+	zone_sets = {
+		ark_forever_cruise_city
+	}
+
+	excluded_building_sets = {
+		generator
+		mining
+	}
+}
+
+zone_ark_sacred_path_pilgrims = {
+	icon = GFX_district_specialization_ark_pilgrimage
+	inline_script = {
+		script = zones/shared_ark_pilgrim_zone
+		AMOUNT = @scaling_district_2_jobs
+	}
+
+	inline_script = {
+		script = jobs/zone_researchers_add
+		AMOUNT = @scaling_district_researchers_4_jobs
+	}
+
+	inline_script = {
+		script = zones/shared_city_non_urban_zone_modifiers
+	}
+
+	zone_sets = {
+		ark_urban
+		ark_pilgrim
+		research
+		unity
+	}
+
+	triggered_desc = {
+		text = zone_ark_sacred_path_pilgrims_tt
+		trigger = {
+			owner? = { has_origin = origin_sacred_path }
+		}
+	}
 }

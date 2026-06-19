@@ -1,3 +1,4 @@
+# Simple More Building Slots: slots -> @TINYGROX_MAX_BUILDINGS, max_buildings cap added if missing (vanilla shared_betharian_zone.txt).
 icon = GFX_district_specialization_betharian
 base_buildtime = @zone_buildtime
 
@@ -17,8 +18,12 @@ unlock = { # planet scope
 
 resources = {
 	category = planet_zones
-	cost = {
-		minerals = @zone_cost
+	inline_script = {
+		script = buildings/nomadic_cost_switcher
+		REGULAR_RESOURCE = minerals
+		NOMADIC_RESOURCE = alloys
+		COST = @zone_cost
+		NOMADIC_COST_MULT = 0.5
 	}
 }
 
@@ -45,6 +50,6 @@ planet_modifier = {
 	planet_miners_energy_produces_add = 6
 	planet_miners_minerals_produces_add = -2
 }
-max_buildings = @TINYGROX_MAX_BUILDINGS
 
 ai_priority = 10
+max_buildings = @TINYGROX_MAX_BUILDINGS

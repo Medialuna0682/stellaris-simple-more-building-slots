@@ -1,4 +1,4 @@
-# Simple More Building Slots: slots -> @TINYGROX_MAX_BUILDINGS, max_buildings cap added if missing (vanilla shared_ark_forever_cruise_city_mixed_zone.txt).
+# Simple More Building Slots: slots -> @TINYGROX_MAX_BUILDINGS, max_buildings cap added if missing (vanilla shared_ark_forever_cruise_city_passenger_zone.txt).
 base_buildtime = @zone_buildtime
 
 potential = { # planet scope
@@ -12,7 +12,7 @@ potential = { # planet scope
 }
 
 convert_to = {
-	zone_industrial
+	zone_urban
 }
 
 unlock = { # planet scope
@@ -35,28 +35,13 @@ resources = {
 }
 
 inline_script = {
-	script = jobs/zone_foundry_add
+	script = jobs/cruise_passengers_add
 	AMOUNT = $AMOUNT$
-	AMOUNT2 = $AMOUNT$
-}
-
-inline_script = {
-	script = jobs/zone_factory_add
-	AMOUNT = $AMOUNT$
-}
-
-triggered_district_planet_modifier = {
-	job_cruise_passenger_add = $AMOUNT$
 }
 
 included_building_sets = {
 	urban
 	ark_forever_cruise_passengers
-	ark_forever_cruise_crew
-}
-
-convert_to = {
-	zone_industrial
 }
 
 planet_modifier = {

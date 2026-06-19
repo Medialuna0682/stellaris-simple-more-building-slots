@@ -1,7 +1,11 @@
+# Simple More Building Slots — re-synced from current vanilla common/zones/03_wilderness_zones.txt.
+# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
+# max_buildings added where a zone grants slots but has no cap (arkship, variants).
+
 # Planet District Zones
 #
 # Documentation: ./99_HOW_TO_ZONE.txt
-@TINYGROX_MAX_BUILDINGS = 6
+
 zone_urban_wilderness = {
 	icon = GFX_district_specialization_wilderness_urban
 	base_buildtime = @zone_buildtime
@@ -28,7 +32,7 @@ zone_urban_wilderness = {
 		}
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		urban
@@ -47,7 +51,7 @@ zone_urban_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	triggered_desc = {
@@ -87,10 +91,11 @@ zone_foundry_wilderness = {
 	inline_script = {
 		script = jobs/zone_foundry_add
 		AMOUNT = @scaling_district_1_job
+		AMOUNT2 = @scaling_district_1_job
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	zone_sets = {
@@ -135,7 +140,7 @@ zone_research_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	zone_sets = {
@@ -187,7 +192,7 @@ zone_unity_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	zone_sets = {
@@ -254,7 +259,7 @@ zone_research_unity_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	triggered_desc = {
@@ -306,7 +311,7 @@ zone_trade_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	triggered_desc = {
@@ -350,7 +355,7 @@ zone_fortress_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		#  3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	zone_sets = {
@@ -367,6 +372,7 @@ zone_fortress_wilderness = {
 		}
 		text = zone_fortress_triggered_desc
 	}
+
 	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
@@ -403,7 +409,7 @@ zone_minerals_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	zone_sets = {
@@ -456,7 +462,7 @@ zone_energy_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	zone_sets = {
@@ -512,7 +518,7 @@ zone_food_wilderness = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	zone_sets = {

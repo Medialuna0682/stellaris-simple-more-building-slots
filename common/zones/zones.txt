@@ -1,7 +1,11 @@
+# Simple More Building Slots — re-synced from current vanilla common/zones/00_zones.txt.
+# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
+# max_buildings added where a zone grants slots but has no cap (arkship, variants).
+
 # Planet District Zones
 #
 # Documentation: ./99_HOW_TO_ZONE.txt
-@TINYGROX_MAX_BUILDINGS = 6
+
 zone_default = {
 	icon = GFX_diplomatic_weight_large
 	base_buildtime = @zone_buildtime
@@ -16,12 +20,16 @@ zone_default = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
-	max_buildings = 12	# 6
+	max_buildings = 12
 
 	zone_sets = {
 		default
@@ -73,8 +81,12 @@ zone_urban = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -82,7 +94,7 @@ zone_urban = {
 		planet_housing_add = @zone_urban_housing_positive
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		urban
@@ -107,7 +119,7 @@ zone_urban = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	triggered_desc = {
@@ -123,8 +135,9 @@ zone_urban = {
 
 zone_industrial = {
 	inline_script = {
-		script = zones/z_myIndustrial_zone
+		script = zones/shared_industrial_zone
 		AMOUNT = @scaling_district_2_jobs
+		LARGE_AMOUNT = @scaling_district_2_jobs
 	}
 
 	zone_sets = {
@@ -141,8 +154,9 @@ zone_industrial = {
 
 zone_foundry = {
 	inline_script = {
-		script = zones/z_myIndustrial_foundry_zone
+		script = zones/shared_industrial_foundry_zone
 		AMOUNT = @scaling_district_1_job
+		LARGE_AMOUNT = @scaling_district_1_job
 	}
 
 	zone_sets = {
@@ -159,7 +173,7 @@ zone_foundry = {
 
 zone_factory = {
 	inline_script = {
-		script = zones/z_myIndustrial_factory_zone
+		script = zones/shared_industrial_factory_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -196,8 +210,12 @@ zone_research_unity = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -224,9 +242,9 @@ zone_research_unity = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
+
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
@@ -239,11 +257,12 @@ zone_research_unity = {
 	}
 
 	ai_priority = 8
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_research = {
 	inline_script = {
-		script = zones/z_myResearch_zone
+		script = zones/shared_research_zone
 		AMOUNT = @scaling_district_3_jobs
 	}
 
@@ -261,8 +280,12 @@ zone_research = {
 
 zone_research_physics = {
 	inline_script = {
-		script = zones/z_myResearch_physics_zone
+		script = zones/shared_research_physics_zone
 		AMOUNT = @scaling_district_1_job
+	}
+
+	inline_script = {
+		script = zones/potential_no_wilderness
 	}
 
 	zone_sets = {
@@ -282,8 +305,12 @@ zone_research_physics = {
 
 zone_research_society = {
 	inline_script = {
-		script = zones/z_myResearch_society_zone
+		script = zones/shared_research_society_zone
 		AMOUNT = @scaling_district_1_job
+	}
+
+	inline_script = {
+		script = zones/potential_no_wilderness
 	}
 
 	zone_sets = {
@@ -303,8 +330,12 @@ zone_research_society = {
 
 zone_research_engineering = {
 	inline_script = {
-		script = zones/z_myResearch_engineering_zone
+		script = zones/shared_research_engineering_zone
 		AMOUNT = @scaling_district_1_job
+	}
+
+	inline_script = {
+		script = zones/potential_no_wilderness
 	}
 
 	zone_sets = {
@@ -324,7 +355,7 @@ zone_research_engineering = {
 
 zone_unity = {
 	inline_script = {
-		script = zones/z_myUnity_zone
+		script = zones/shared_unity_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -346,7 +377,7 @@ zone_unity = {
 
 zone_unity_spiritualist = {
 	inline_script = {
-		script = zones/z_myUnity_spiritualist_zone
+		script = zones/shared_unity_spiritualist_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -368,7 +399,7 @@ zone_unity_spiritualist = {
 
 zone_unity_bio_trophy = {
 	inline_script = {
-		script = zones/z_myUnity_bio_trophy_zone
+		script = zones/shared_unity_bio_trophy_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -390,7 +421,7 @@ zone_unity_bio_trophy = {
 
 zone_fortress = {
 	inline_script = {
-		script = zones/z_myFortress_zone
+		script = zones/shared_fortress_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -406,7 +437,7 @@ zone_fortress = {
 
 zone_trade = {
 	inline_script = {
-		script = zones/z_myTrade_zone
+		script = zones/shared_trade_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -441,8 +472,12 @@ zone_resort = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -461,14 +496,15 @@ zone_resort = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
 
 	ai_priority = 5
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_resort_entertainment = {
@@ -488,8 +524,12 @@ zone_resort_entertainment = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -508,9 +548,9 @@ zone_resort_entertainment = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
+
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
@@ -523,6 +563,7 @@ zone_resort_entertainment = {
 	}
 
 	ai_priority = 10
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 #Resort World Attraction Zones
@@ -556,8 +597,12 @@ zone_resort_zoo = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -578,7 +623,7 @@ zone_resort_zoo = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
 
-	max_buildings = 1
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	triggered_desc = {
 		trigger = {
@@ -617,8 +662,12 @@ zone_resort_grand_museum = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -637,7 +686,7 @@ zone_resort_grand_museum = {
 		job_bureaucrat_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = 1
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -661,9 +710,7 @@ zone_resort_hunting_ground = {
 		exists = owner
 		owner = {
 			is_wilderness_empire = no
-			NOT = {
-				is_xenophile = yes
-			}
+			is_xenophile = no
 			NOT = {
 				has_zone = {
 					zone = zone_resort_hunting_ground
@@ -684,8 +731,12 @@ zone_resort_hunting_ground = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -702,10 +753,10 @@ zone_resort_hunting_ground = {
 		potential = {
 			exists = owner
 		}
-		job_trophy_hunter_add = @doubled_scaling_district_1_job
+		job_wrangler_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = 1
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -750,8 +801,12 @@ zone_resort_spiritual_retreat = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -770,7 +825,7 @@ zone_resort_spiritual_retreat = {
 		job_bureaucrat_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = 1
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -814,8 +869,12 @@ zone_resort_restoration_enclave = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -834,7 +893,7 @@ zone_resort_restoration_enclave = {
 		job_healthcare_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = 1
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -882,8 +941,12 @@ zone_resort_proving_grounds = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -902,7 +965,7 @@ zone_resort_proving_grounds = {
 		job_entertainer_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = 1
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -920,7 +983,7 @@ zone_resort_proving_grounds = {
 
 zone_minerals = {
 	inline_script = {
-		script = zones/z_myMinerals_zone
+		script = zones/shared_minerals_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -930,11 +993,15 @@ zone_minerals = {
 	}
 
 	show_in_tech = tech_mineral_purification_1
+
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
 }
 
 zone_betharian = {
 	inline_script = {
-		script = zones/z_myBetharian_zone # shared_betharian_zone
+		script = zones/shared_betharian_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -950,7 +1017,7 @@ zone_betharian = {
 
 zone_rare_crystals = {
 	inline_script = {
-		script = zones/z_myRare_crystals_zone # shared_rare_crystals_zone
+		script = zones/shared_rare_crystals_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -962,17 +1029,85 @@ zone_rare_crystals = {
 	}
 
 	show_in_tech = tech_mine_rare_crystals
+
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
+}
+
+zone_minerals_physics = {
+	icon = GFX_district_specialization_physics
+	base_buildtime = @zone_buildtime
+
+
+	swap_type = district_mining_physics
+	swap_type_weight = 5
+
+	potential = { # planet scope
+		has_deposit = d_sky_mountain
+	}
+
+	unlock = { # planet scope
+		hidden_trigger = {
+			has_deposit = d_sky_mountain
+		}
+	}
+
+	resources = {
+		category = planet_zones
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
+		}
+	}
+
+	included_building_sets = {
+		mining
+		fallen_empire_mining
+		mining_automation
+		physics
+	}
+
+	convert_to = {
+	}
+
+	inline_script = {
+		script = jobs/zone_miner_add
+		AMOUNT = @scaling_district_2_jobs
+	}
+
+	inline_script = {
+		script = jobs/zone_physicists_add
+		LARGE_AMOUNT = @scaling_district_2_jobs
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+		planet_miners_physics_research_produces_add = 0.5
+		planet_miners_minerals_produces_add = -1
+	}
+
+	ai_priority = 10
+
+	zone_sets = {
+		minerals
+	}
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_energy = {
 	inline_script = {
-		script = zones/z_myEnergy_zone # zones/shared_energy_zone
+		script = zones/shared_energy_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
 	zone_sets = {
 		energy
 		habitat_energy
+		ark_reactor
 	}
 
 	show_in_tech = tech_power_hub_1
@@ -980,7 +1115,7 @@ zone_energy = {
 
 zone_volatile_motes = {
 	inline_script = {
-		script = zones/z_myVolatile_motes_zone # shared_volatile_motes_zone
+		script = zones/shared_volatile_motes_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -992,11 +1127,15 @@ zone_volatile_motes = {
 	}
 
 	show_in_tech = tech_mine_volatile_motes
+
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
 }
 
 zone_food = {
 	inline_script = {
-		script = zones/z_myFood_zone # zones/shared_food_zone
+		script = zones/shared_food_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
@@ -1016,7 +1155,12 @@ zone_anglers = {
 			exists = owner
 			owner = { is_anglers_empire = yes }
 		}
-		is_wet = yes
+		OR = {
+			is_wet = yes
+			owner = {
+				is_nomadic = yes
+			}
+		}
 	}
 
 	unlock = { # planet scope
@@ -1024,24 +1168,34 @@ zone_anglers = {
 			exists = owner
 			owner = { is_anglers_empire = yes }
 		}
-		is_wet = yes
+		OR = {
+			is_wet = yes
+			owner = {
+				is_nomadic = yes
+			}
+		}
 	}
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
 	inline_script = {
 		script = jobs/zone_farmers_add
-		AMOUNT = @bonus_scaling_district_2_jobs
+		AMOUNT = @scaling_district_2_jobs
 	}
 
 	inline_script = {
 		script = jobs/zone_factory_add
-		AMOUNT = @bonus_scaling_district_2_jobs
+		AMOUNT = @scaling_district_2_jobs
+		LARGE_AMOUNT = @bonus_scaling_district_2_jobs
 	}
 
 	zone_sets = {
@@ -1056,46 +1210,37 @@ zone_anglers = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
-	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
-	triggered_desc = {
-		trigger = {
-			always = yes
-		}
-		text = zone_anglers_triggered_desc
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	ai_priority = 5
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_exotic_gases = {
 	inline_script = {
-		script = zones/z_myExotic_gases_zone # shared_exotic_gases_zone
+		script = zones/shared_exotic_gases_zone
 		AMOUNT = @scaling_district_1_job
 	}
 
 	swap_type = district_farming_exotic_gases
 	swap_type_weight = 5
 
-	resources = {
-		category = planet_zones
-		cost = {
-			minerals = @zone_cost
-		}
-	}
-
 	zone_sets = {
 		food
 	}
 
 	show_in_tech = tech_mine_exotic_gases
+
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
 }
 
 #Hive World Zones
 zone_spawning = {
 	inline_script = {
-		script = zones/z_mySpawning_zone
+		script = zones/shared_spawning_zone
 		AMOUNT = 50
 	}
 
@@ -1135,8 +1280,12 @@ zone_machine_replication = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
@@ -1163,9 +1312,11 @@ zone_machine_replication = {
 		}
 		job_roboticist_add = 50
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
+
+	max_buildings = @TINYGROX_MAX_BUILDINGS
+
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	inline_script = {
@@ -1196,12 +1347,16 @@ zone_subterranean_urban = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		minerals
@@ -1225,7 +1380,7 @@ zone_subterranean_urban = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	ai_priority = 1
@@ -1268,12 +1423,16 @@ zone_agrarian_urban = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		food
@@ -1297,7 +1456,7 @@ zone_agrarian_urban = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	ai_priority = 1
@@ -1328,12 +1487,16 @@ zone_agrarian_anglers = {
 
 	resources = {
 		category = planet_zones
-		cost = {
-			minerals = @zone_cost
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @zone_cost
+			NOMADIC_COST_MULT = 0.5
 		}
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS		# 3
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		food
@@ -1354,6 +1517,7 @@ zone_agrarian_anglers = {
 	inline_script = {
 		script = jobs/zone_factory_add
 		AMOUNT = @bonus_scaling_district_3_jobs
+		LARGE_AMOUNT = @bonus_scaling_district_3_jobs
 	}
 
 	inline_script = {
@@ -1362,21 +1526,14 @@ zone_agrarian_anglers = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
-	}
-
-	triggered_desc = {
-		trigger = {
-			always = yes
-		}
-		text = zone_anglers_triggered_desc
+		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	ai_priority = 1
 }
 
 zone_cosmogenesis_default = {
-	max_buildings = 1
+	max_buildings = @TINYGROX_MAX_BUILDINGS
 	max_buildings_planet_class = yes
 	zone_sets = { cosmogenesis_default }
 	included_building_sets = { cosmogenesis_world }
@@ -1384,492 +1541,497 @@ zone_cosmogenesis_default = {
 	ai_priority = 0
 }
 
-zone_food_biology = {
-	icon = GFX_district_specialization_society
-	base_buildtime = @zone_buildtime
-
-	swap_type = district_farming_society
-	swap_type_weight = 5
-
-	potential = { # planet scope
-		hidden_trigger = { exists = owner }
-		owner = {
-			is_wilderness_empire = no
-			is_ai = no						# AI isn't great at handling these
-		}
-	}
-
-	unlock = { # planet scope
-		hidden_trigger = {
-			exists = owner
-			owner = {
-				is_wilderness_empire = no
-			}
-		}
-		owner = {
-			has_technology = tech_society_2
-		}
-	}
-
-	resources = {
-		category = planet_zones
-		cost = {
-			minerals = @zone_cost
-		}
-	}
-
-	inline_script = {
-		script = jobs/zone_farmers_add
-		AMOUNT = @scaling_district_2_jobs
-	}
-
-	inline_script = {
-		script = jobs/zone_biologists_add
-		LARGE_AMOUNT = @scaling_district_2_jobs
-	}
-
-	zone_sets = {
-		food
-		habitat_urban
-	}
-
-	included_building_sets = {
-		farming
-		hydroponics
-		society
-		farming_automation
-	}
-
-	convert_to = {
-		zone_research_society_arcology
-		zone_research_society_ring_world
-		zone_research_society_nexus
-		zone_research_society_hive
-	}
-
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
-		planet_farmers_produces_mult = @zone_rural_research_worker_produces_mult
-	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
-
-	triggered_district_planet_modifier = {
-		potential = {
-			always = yes
-		}
-		planet_biologists_produces_mult = @zone_rural_research_research_produces_mult
-		planet_biologists_food_upkeep_add = @zone_rural_research_researcher_upkeep_add
-	}
-
-	triggered_desc = {
-		trigger = {
-			always = yes
-		}
-		text = zone_food_triggered_desc
-	}
-
-	show_in_tech = tech_society_2
-
-	ai_priority = 13
-}
-
-zone_minerals_engineering = {
-	icon = GFX_district_specialization_engineering
-	base_buildtime = @zone_buildtime
-
-	swap_type = district_mining_engineering
-	swap_type_weight = 5
-
-	potential = { # planet scope
-		hidden_trigger = { exists = owner }
-		owner = {
-			is_wilderness_empire = no
-			is_ai = no						# AI isn't great at handling these
-		}
-	}
-
-	unlock = { # planet scope
-		hidden_trigger = {
-			exists = owner
-			owner = {
-				is_wilderness_empire = no
-			}
-		}
-		owner = {
-			has_technology = tech_engineering_2
-		}
-	}
-
-	resources = {
-		category = planet_zones
-		cost = {
-			minerals = @zone_cost
-		}
-	}
-
-	inline_script = {
-		script = jobs/zone_miner_add
-		AMOUNT = @scaling_district_2_jobs
-	}
-
-	inline_script = {
-		script = jobs/zone_engineers_add
-		LARGE_AMOUNT = @scaling_district_2_jobs
-	}
-
-	zone_sets = {
-		minerals
-		habitat_urban
-	}
-
-	included_building_sets = {
-		mining
-		engineering
-		fallen_empire_mining
-		mining_automation
-	}
-
-	convert_to = {
-		zone_research_engineering_arcology
-		zone_research_engineering_ring_world
-		zone_research_engineering_nexus
-		zone_research_engineering_hive
-	}
-
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
-		planet_miners_produces_mult = @zone_rural_research_worker_produces_mult
-	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
-	triggered_district_planet_modifier = {
-		potential = {
-			always = yes
-		}
-		planet_engineers_produces_mult = @zone_rural_research_research_produces_mult
-		planet_engineers_minerals_upkeep_add = @zone_rural_research_researcher_upkeep_add
-	}
-
-	triggered_desc = {
-		trigger = {
-			always = yes
-		}
-		text = zone_minerals_triggered_desc
-	}
-
-	show_in_tech = tech_engineering_2
-
-	ai_priority = 13
-}
-
-zone_energy_physics = {
-	icon = GFX_district_specialization_physics
-	base_buildtime = @zone_buildtime
-
-	swap_type = district_generator_physics
-	swap_type_weight = 5
-
-	potential = { # planet scope
-		hidden_trigger = { exists = owner }
-		owner = {
-			is_wilderness_empire = no
-			is_ai = no						# AI isn't great at handling these
-		}
-	}
-
-	unlock = { # planet scope
-		hidden_trigger = {
-			exists = owner
-			owner = {
-				is_wilderness_empire = no
-			}
-		}
-		owner = {
-			has_technology = tech_physics_2
-		}
-	}
-
-	resources = {
-		category = planet_zones
-		cost = {
-			minerals = @zone_cost
-		}
-	}
-
-	zone_sets = {
-		energy
-		habitat_urban
-	}
-
-	included_building_sets = {
-		generator
-		physics
-		fallen_empire_generator
-		generator_automation
-	}
-
-	convert_to = {
-		zone_research_physics_arcology
-		zone_research_physics_ring_world
-		zone_research_physics_nexus
-		zone_research_physics_hive
-	}
-
-	inline_script = {
-		script = jobs/zone_technicians_add
-		AMOUNT = @scaling_district_2_jobs
-	}
-
-	inline_script = {
-		script = jobs/zone_physicists_add
-		LARGE_AMOUNT = @scaling_district_2_jobs
-	}
-
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		#  3
-		planet_technician_produces_mult = @zone_rural_research_worker_produces_mult
-	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS	# 3
-	triggered_district_planet_modifier = {
-		potential = {
-			always = yes
-		}
-		planet_physicists_produces_mult = @zone_rural_research_research_produces_mult
-		planet_physicists_energy_upkeep_add = @zone_rural_research_researcher_upkeep_add
-	}
-
-	triggered_desc = {
-		trigger = {
-			always = yes
-		}
-		text = zone_energy_triggered_desc
-	}
-
-	show_in_tech = tech_physics_2
-
-	ai_priority = 13
-}
-
-zone_urban_energy = {
-	icon = GFX_district_specialization_energy
-	base_buildtime = @zone_buildtime
-	potential = { # planet scope
-		hidden_trigger = { exists = owner }
-		owner = {
-			is_wilderness_empire = no
-			is_ai = no						# AI isn't great at handling these
-		}
-		NOT = { is_planet_class = pc_city }
-	}
-
-	unlock = { # planet scope
-		hidden_trigger = {
-			exists = owner
-			owner = {
-				is_wilderness_empire = no
-			}
-		}
-	}
-
-	resources = {
-		category = planet_zones
-		cost = {
-			minerals = @zone_cost
-		}
-	}
-
-	inline_script = {
-		script = jobs/zone_trader_add
-		AMOUNT = @scaling_district_2_jobs
-	}
-
-	max_buildings = 0
-
-	zone_sets = {
-		urban
-	}
-
-	included_building_sets = {
-		generator
-		urban
-		fallen_empire_generator
-	}
-
-	triggered_district_planet_modifier = {
-		potential = {
-			NOT = {
-				is_planet_class = pc_ringworld_habitable
-			}
-		}
-		planet_technician_produces_mult = @zone_urban_rural_worker_produces_mult
-		planet_technician_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
-	}
-
-	triggered_district_planet_modifier = {
-		potential = {
-			is_planet_class = pc_ringworld_habitable
-		}
-		planet_technician_produces_mult = @zone_urban_rural_worker_produces_mult
-		planet_technician_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
-		mult = 5
-	}
-
-	triggered_desc = {
-		trigger = {
-			always = yes
-		}
-		text = zone_urban_triggered_desc
-	}
-
-	ai_priority = 13
-}
-
-zone_urban_minerals = {
-	icon = GFX_district_specialization_minerals
-	base_buildtime = @zone_buildtime
-	potential = { # planet scope
-		hidden_trigger = { exists = owner }
-		owner = {
-			is_wilderness_empire = no
-			is_ai = no						# AI isn't great at handling these
-		}
-		NOR = {
-			is_planet_class = pc_ringworld_habitable
-			is_planet_class = pc_city
-		}
-	}
-
-	unlock = { # planet scope
-		hidden_trigger = {
-			exists = owner
-			owner = {
-				is_wilderness_empire = no
-			}
-		}
-	}
-
-	resources = {
-		category = planet_zones
-		cost = {
-			minerals = @zone_cost
-		}
-	}
-
-	zone_sets = {
-		urban
-	}
-
-	inline_script = {
-		script = jobs/zone_trader_add
-		AMOUNT = @scaling_district_2_jobs
-	}
-
-	max_buildings = 0
-
-	included_building_sets = {
-		mining
-		urban
-		fallen_empire_mining
-	}
-
-	triggered_district_planet_modifier = {
-		potential = {
-			NOT = {
-				is_planet_class = pc_ringworld_habitable
-			}
-		}
-		planet_miners_produces_mult = @zone_urban_rural_worker_produces_mult
-		planet_miners_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
-	}
-
-	triggered_district_planet_modifier = {
-		potential = {
-			is_planet_class = pc_ringworld_habitable
-		}
-		planet_miners_produces_mult = @zone_urban_rural_worker_produces_mult
-		planet_miners_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
-		mult = 5
-	}
-
-	triggered_desc = {
-		trigger = {
-			always = yes
-		}
-		text = zone_urban_triggered_desc
-	}
-
-	ai_priority = 13
-}
-
-zone_urban_food = {
-	icon = GFX_district_specialization_food
-	base_buildtime = @zone_buildtime
-	potential = { # planet scope
-		hidden_trigger = { exists = owner }
-		owner = {
-			is_wilderness_empire = no
-			is_ai = no						# AI isn't great at handling these
-		}
-		NOT = { is_planet_class = pc_city }
-	}
-
-	unlock = { # planet scope
-		hidden_trigger = {
-			exists = owner
-			owner = {
-				is_wilderness_empire = no
-			}
-		}
-	}
-
-	resources = {
-		category = planet_zones
-		cost = {
-			minerals = @zone_cost
-		}
-	}
-
-	inline_script = {
-		script = jobs/zone_trader_add
-		AMOUNT = @scaling_district_2_jobs
-	}
-
-	max_buildings = 0
-
-	zone_sets = {
-		urban
-	}
-
-	included_building_sets = {
-		farming
-		hydroponics
-		urban
-	}
-
-	triggered_district_planet_modifier = {
-		potential = {
-			NOT = {
-				is_planet_class = pc_ringworld_habitable
-			}
-		}
-		planet_farmers_produces_mult = @zone_urban_rural_worker_produces_mult
-		planet_farmers_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
-	}
-
-	triggered_district_planet_modifier = {
-		potential = {
-			is_planet_class = pc_ringworld_habitable
-		}
-		planet_farmers_produces_mult = @zone_urban_rural_worker_produces_mult
-		planet_farmers_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
-		mult = 5
-	}
-
-	triggered_desc = {
-		trigger = {
-			always = yes
-		}
-		text = zone_urban_triggered_desc
-	}
-
-	ai_priority = 13
-}
+# zone_food_biology = {
+# 	icon = GFX_district_specialization_society
+# 	base_buildtime = @zone_buildtime
+#
+# 	swap_type = district_farming_society
+# 	swap_type_weight = 5
+#
+# 	potential = { # planet scope
+# 		hidden_trigger = { exists = owner }
+# 		owner = {
+# 			is_wilderness_empire = no
+# 			is_ai = no						# AI isn't great at handling these
+# 		}
+# 	}
+#
+# 	unlock = { # planet scope
+# 		hidden_trigger = {
+# 			exists = owner
+# 			owner = {
+# 				is_wilderness_empire = no
+# 			}
+# 		}
+# 		owner = {
+# 			has_technology = tech_society_2
+# 		}
+# 	}
+#
+# 	resources = {
+# 		category = planet_zones
+# 		cost = {
+# 			minerals = @zone_cost
+# 		}
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_farmers_add
+# 		AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_biologists_add
+# 		LARGE_AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	zone_sets = {
+# 		food
+# 		habitat_urban
+#		ark_farm
+# 	}
+#
+# 	included_building_sets = {
+# 		farming
+# 		hydroponics
+# 		society
+# 		farming_automation
+# 	}
+#
+# 	convert_to = {
+# 		zone_research_society_arcology
+# 		zone_research_society_ring_world
+# 		zone_research_society_nexus
+# 		zone_research_society_hive
+# 	}
+#
+# 	planet_modifier = {
+# 		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+# 		planet_farmers_produces_mult = @zone_rural_research_worker_produces_mult
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			always = yes
+# 		}
+# 		planet_biologists_produces_mult = @zone_rural_research_research_produces_mult
+# 		planet_biologists_food_upkeep_add = @zone_rural_research_researcher_upkeep_add
+# 	}
+#
+# 	triggered_desc = {
+# 		trigger = {
+# 			always = yes
+# 		}
+# 		text = zone_food_triggered_desc
+# 	}
+#
+# 	show_in_tech = tech_society_2
+#
+# 	ai_priority = 13
+# }
+#
+# zone_minerals_engineering = {
+# 	icon = GFX_district_specialization_engineering
+# 	base_buildtime = @zone_buildtime
+#
+# 	swap_type = district_mining_engineering
+# 	swap_type_weight = 5
+#
+# 	potential = { # planet scope
+# 		hidden_trigger = { exists = owner }
+# 		owner = {
+# 			is_wilderness_empire = no
+# 			is_ai = no						# AI isn't great at handling these
+# 		}
+# 	}
+#
+# 	unlock = { # planet scope
+# 		hidden_trigger = {
+# 			exists = owner
+# 			owner = {
+# 				is_wilderness_empire = no
+# 			}
+# 		}
+# 		owner = {
+# 			has_technology = tech_engineering_2
+# 		}
+# 	}
+#
+# 	resources = {
+# 		category = planet_zones
+# 		cost = {
+# 			minerals = @zone_cost
+# 		}
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_miner_add
+# 		AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_engineers_add
+# 		LARGE_AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	zone_sets = {
+# 		minerals
+# 		habitat_urban
+# 	}
+#
+# 	included_building_sets = {
+# 		mining
+# 		engineering
+# 		fallen_empire_mining
+# 		mining_automation
+# 	}
+#
+# 	convert_to = {
+# 		zone_research_engineering_arcology
+# 		zone_research_engineering_ring_world
+# 		zone_research_engineering_nexus
+# 		zone_research_engineering_hive
+# 	}
+#
+# 	planet_modifier = {
+# 		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+# 		planet_miners_produces_mult = @zone_rural_research_worker_produces_mult
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			always = yes
+# 		}
+# 		planet_engineers_produces_mult = @zone_rural_research_research_produces_mult
+# 		planet_engineers_minerals_upkeep_add = @zone_rural_research_researcher_upkeep_add
+# 	}
+#
+# 	triggered_desc = {
+# 		trigger = {
+# 			always = yes
+# 		}
+# 		text = zone_minerals_triggered_desc
+# 	}
+#
+# 	show_in_tech = tech_engineering_2
+#
+# 	ai_priority = 13
+# }
+#
+# zone_energy_physics = {
+# 	icon = GFX_district_specialization_physics
+# 	base_buildtime = @zone_buildtime
+#
+# 	swap_type = district_generator_physics
+# 	swap_type_weight = 5
+#
+# 	potential = { # planet scope
+# 		hidden_trigger = { exists = owner }
+# 		owner = {
+# 			is_wilderness_empire = no
+# 			is_ai = no						# AI isn't great at handling these
+# 		}
+# 	}
+#
+# 	unlock = { # planet scope
+# 		hidden_trigger = {
+# 			exists = owner
+# 			owner = {
+# 				is_wilderness_empire = no
+# 			}
+# 		}
+# 		owner = {
+# 			has_technology = tech_physics_2
+# 		}
+# 	}
+#
+# 	resources = {
+# 		category = planet_zones
+# 		cost = {
+# 			minerals = @zone_cost
+# 		}
+# 	}
+#
+# 	zone_sets = {
+# 		energy
+# 		habitat_urban
+#		ark_reactor
+# 	}
+#
+# 	included_building_sets = {
+# 		generator
+# 		physics
+# 		fallen_empire_generator
+# 		generator_automation
+# 	}
+#
+# 	convert_to = {
+# 		zone_research_physics_arcology
+# 		zone_research_physics_ring_world
+# 		zone_research_physics_nexus
+# 		zone_research_physics_hive
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_technicians_add
+# 		AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_physicists_add
+# 		LARGE_AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	planet_modifier = {
+# 		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+# 		planet_technician_produces_mult = @zone_rural_research_worker_produces_mult
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			always = yes
+# 		}
+# 		planet_physicists_produces_mult = @zone_rural_research_research_produces_mult
+# 		planet_physicists_energy_upkeep_add = @zone_rural_research_researcher_upkeep_add
+# 	}
+#
+# 	triggered_desc = {
+# 		trigger = {
+# 			always = yes
+# 		}
+# 		text = zone_energy_triggered_desc
+# 	}
+#
+# 	show_in_tech = tech_physics_2
+#
+# 	ai_priority = 13
+# }
+#
+# zone_urban_energy = {
+# 	icon = GFX_district_specialization_energy
+# 	base_buildtime = @zone_buildtime
+# 	potential = { # planet scope
+# 		hidden_trigger = { exists = owner }
+# 		owner = {
+# 			is_wilderness_empire = no
+# 			is_ai = no						# AI isn't great at handling these
+# 		}
+# 		NOT = {
+# 			is_planet_class = pc_city
+# 		}
+# 	}
+#
+# 	unlock = { # planet scope
+# 		hidden_trigger = {
+# 			exists = owner
+# 			owner = {
+# 				is_wilderness_empire = no
+# 			}
+# 		}
+# 	}
+#
+# 	resources = {
+# 		category = planet_zones
+# 		cost = {
+# 			minerals = @zone_cost
+# 		}
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_trader_add
+# 		AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	max_buildings = 0
+#
+# 	zone_sets = {
+# 		urban
+# 	}
+#
+# 	included_building_sets = {
+# 		generator
+# 		urban
+# 		fallen_empire_generator
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			NOT = {
+# 				is_planet_class = pc_ringworld_habitable
+# 			}
+# 		}
+# 		planet_technician_produces_mult = @zone_urban_rural_worker_produces_mult
+# 		planet_technician_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			is_planet_class = pc_ringworld_habitable
+# 		}
+# 		planet_technician_produces_mult = @zone_urban_rural_worker_produces_mult
+# 		planet_technician_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
+# 		mult = 5
+# 	}
+#
+# 	triggered_desc = {
+# 		trigger = {
+# 			always = yes
+# 		}
+# 		text = zone_urban_triggered_desc
+# 	}
+#
+# 	ai_priority = 13
+# }
+#
+# zone_urban_minerals = {
+# 	icon = GFX_district_specialization_minerals
+# 	base_buildtime = @zone_buildtime
+# 	potential = { # planet scope
+# 		hidden_trigger = { exists = owner }
+# 		owner = {
+# 			is_wilderness_empire = no
+# 			is_ai = no						# AI isn't great at handling these
+# 		}
+# 		NOR = {
+# 			is_planet_class = pc_ringworld_habitable
+# 			is_planet_class = pc_city
+# 		}
+# 	}
+#
+# 	unlock = { # planet scope
+# 		hidden_trigger = {
+# 			exists = owner
+# 			owner = {
+# 				is_wilderness_empire = no
+# 			}
+# 		}
+# 	}
+#
+# 	resources = {
+# 		category = planet_zones
+# 		cost = {
+# 			minerals = @zone_cost
+# 		}
+# 	}
+#
+# 	zone_sets = {
+# 		urban
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_trader_add
+# 		AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	max_buildings = 0
+#
+# 	included_building_sets = {
+# 		mining
+# 		urban
+# 		fallen_empire_mining
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			NOT = {
+# 				is_planet_class = pc_ringworld_habitable
+# 			}
+# 		}
+# 		planet_miners_produces_mult = @zone_urban_rural_worker_produces_mult
+# 		planet_miners_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			is_planet_class = pc_ringworld_habitable
+# 		}
+# 		planet_miners_produces_mult = @zone_urban_rural_worker_produces_mult
+# 		planet_miners_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
+# 		mult = 5
+# 	}
+#
+# 	triggered_desc = {
+# 		trigger = {
+# 			always = yes
+# 		}
+# 		text = zone_urban_triggered_desc
+# 	}
+#
+# 	ai_priority = 13
+# }
+#
+# zone_urban_food = {
+# 	icon = GFX_district_specialization_food
+# 	base_buildtime = @zone_buildtime
+# 	potential = { # planet scope
+# 		hidden_trigger = { exists = owner }
+# 		owner = {
+# 			is_wilderness_empire = no
+# 			is_ai = no						# AI isn't great at handling these
+# 		}
+# 		NOT = {
+# 			is_planet_class = pc_city
+# 		}
+# 	}
+#
+# 	unlock = { # planet scope
+# 		hidden_trigger = {
+# 			exists = owner
+# 			owner = {
+# 				is_wilderness_empire = no
+# 			}
+# 		}
+# 	}
+#
+# 	resources = {
+# 		category = planet_zones
+# 		cost = {
+# 			minerals = @zone_cost
+# 		}
+# 	}
+#
+# 	inline_script = {
+# 		script = jobs/zone_trader_add
+# 		AMOUNT = @scaling_district_2_jobs
+# 	}
+#
+# 	max_buildings = 0
+#
+# 	zone_sets = {
+# 		urban
+# 	}
+#
+# 	included_building_sets = {
+# 		farming
+# 		hydroponics
+# 		urban
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			NOT = {
+# 				is_planet_class = pc_ringworld_habitable
+# 			}
+# 		}
+# 		planet_farmers_produces_mult = @zone_urban_rural_worker_produces_mult
+# 		planet_farmers_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
+# 	}
+#
+# 	triggered_district_planet_modifier = {
+# 		potential = {
+# 			is_planet_class = pc_ringworld_habitable
+# 		}
+# 		planet_farmers_produces_mult = @zone_urban_rural_worker_produces_mult
+# 		planet_farmers_trade_upkeep_add = @zone_urban_rural_worker_trade_upkeep_add
+# 		mult = 5
+# 	}
+#
+# 	triggered_desc = {
+# 		trigger = {
+# 			always = yes
+# 		}
+# 		text = zone_urban_triggered_desc
+# 	}
+#
+# 	ai_priority = 13
+# }

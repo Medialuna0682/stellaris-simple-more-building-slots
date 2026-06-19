@@ -1,6 +1,15 @@
-# Simple More Building Slots: slots -> @TINYGROX_MAX_BUILDINGS, max_buildings cap added if missing (vanilla shared_research_engineering_zone.txt).
-icon = GFX_district_specialization_engineering
+# Simple More Building Slots: slots -> @TINYGROX_MAX_BUILDINGS, max_buildings cap added if missing (vanilla shared_research_zone.txt).
+icon = GFX_district_specialization_research
 base_buildtime = @zone_buildtime
+potential = { # planet scope
+	hidden_trigger = {
+		exists = owner
+		owner = {
+			is_wilderness_empire = no
+		}
+	}
+}
+
 unlock = { # planet scope
 	hidden_trigger = {
 		exists = owner
@@ -22,18 +31,30 @@ resources = {
 }
 
 included_building_sets = {
-	engineering
 	research
 	urban_automation
 	origin
 }
 
 inline_script = {
-	script = jobs/zone_engineers_add
-	LARGE_AMOUNT = $AMOUNT$
+	script = jobs/zone_researchers_add
+	AMOUNT = $AMOUNT$
 }
 
 planet_modifier = {
 	zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 }
+
+ai_resource_production = {
+	physics_research = 5
+	society_research = 5
+	engineering_research = 5
+
+	trigger = {
+		has_any_research_zone = yes
+	}
+}
+
+ai_weight_coefficient = 1.1
+ai_priority = 10
 max_buildings = @TINYGROX_MAX_BUILDINGS

@@ -1,5 +1,4 @@
-# Arkship slots patch (简单更多区划建筑槽位): + max_buildings, zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (was 3)
-# Used by arkship zone_ark_farm_society (all other users redirected to z_myResearch_society_zone).
+# Simple More Building Slots: slots -> @TINYGROX_MAX_BUILDINGS, max_buildings cap added if missing (vanilla shared_research_society_zone.txt).
 icon = GFX_district_specialization_society
 base_buildtime = @zone_buildtime
 unlock = { # planet scope
@@ -35,6 +34,6 @@ inline_script = {
 }
 
 planet_modifier = {
-	zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+	zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 }
 max_buildings = @TINYGROX_MAX_BUILDINGS

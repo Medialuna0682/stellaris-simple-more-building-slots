@@ -1,4 +1,4 @@
-# Arkship slots patch (简单更多区划建筑槽位): + max_buildings, zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (was 3)
+# Simple More Building Slots: slots -> @TINYGROX_MAX_BUILDINGS, max_buildings cap added if missing (vanilla shared_ark_foundry_zone.txt).
 icon = GFX_district_specialization_foundry
 base_buildtime = @zone_buildtime
 
@@ -33,12 +33,12 @@ included_building_sets = {
 }
 
 planet_modifier = {
-	zone_building_slots_add = @TINYGROX_MAX_BUILDINGS		# 3
+	zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	planet_metallurgists_minerals_upkeep_add = 1.5
 	planet_metallurgists_alloys_produces_add = 0.75
 	ship_armor_from_metallurgists = 0.02
 	ship_hardening_from_metallurgists = 0.01
 }
-max_buildings = @TINYGROX_MAX_BUILDINGS
 
 ai_priority = 5
+max_buildings = @TINYGROX_MAX_BUILDINGS

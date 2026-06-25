@@ -25,6 +25,7 @@ zone_default = {
 		}
 	}
 
+	max_buildings = 12
 
 	zone_sets = {
 		default
@@ -51,9 +52,6 @@ zone_default = {
 	}
 
 	ai_priority = 0
-	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
-	}
 }
 
 zone_urban = {

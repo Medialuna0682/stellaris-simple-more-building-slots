@@ -1,7 +1,3 @@
-# Simple More Building Slots — re-synced from current vanilla common/zones/05_arkship_zones.txt.
-# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
-# max_buildings added where a zone grants slots but has no cap (arkship, variants).
-
 # Urban Zones
 zone_ark_research_unity = {
 	icon = GFX_district_specialization_ark_research_unity_consumer_goods
@@ -73,9 +69,6 @@ zone_ark_research_unity = {
 		AMOUNT = @scaling_district_unity_5_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -85,7 +78,9 @@ zone_ark_research_unity = {
 	}
 
 	ai_priority = 8
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_industrial = {
@@ -157,9 +152,6 @@ zone_ark_industrial = {
 		AMOUNT = @scaling_district_3_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -169,7 +161,9 @@ zone_ark_industrial = {
 	}
 
 	ai_priority = 8
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_research_unity_gestalt = {
@@ -239,9 +233,6 @@ zone_ark_research_unity_gestalt = {
 		AMOUNT = @scaling_district_unity_5_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -251,7 +242,9 @@ zone_ark_research_unity_gestalt = {
 	}
 
 	ai_priority = 8
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_foundry = {
@@ -317,9 +310,6 @@ zone_ark_foundry = {
 		AMOUNT2 = @scaling_district_2_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -329,7 +319,9 @@ zone_ark_foundry = {
 	}
 
 	ai_priority = 8
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 # Generator Zones
@@ -363,6 +355,9 @@ zone_ark_engine_bypass = {
 	zone_sets = {
 		ark_reactor
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_shield_overloader = {
@@ -393,6 +388,9 @@ zone_ark_shield_overloader = {
 
 	zone_sets = {
 		ark_reactor
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -429,6 +427,9 @@ zone_ark_reactor_physics = {
 	ai_priority = 15
 
 	ai_weight_coefficient = 1.1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 # Farming Zones
@@ -447,6 +448,9 @@ zone_ark_food = {
 
 	swap_type = district_ark_food
 	swap_type_weight = 5
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_farm_society = {
@@ -482,6 +486,9 @@ zone_ark_farm_society = {
 	ai_priority = 15
 
 	ai_weight_coefficient = 1.1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_harvest = {
@@ -495,6 +502,9 @@ zone_ark_harvest = {
 
 	zone_sets = {
 		ark_basic
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -527,9 +537,6 @@ zone_ark_waystation_trade = {
 		AMOUNT = @base_rural_district_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	ai_weight_coefficient = 0.8
 	ai_priority = 10
@@ -546,7 +553,9 @@ zone_ark_waystation_trade = {
 
 	swap_type = district_ark_waystation_trade
 	swap_type_weight = 5
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 # Military Zones
@@ -588,7 +597,6 @@ zone_ark_missile_silos = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.15
 		weapon_explosive_from_soldiers = 0.05
 	}
@@ -602,7 +610,9 @@ zone_ark_missile_silos = {
 	}
 
 	ai_priority = 5
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_ammunition_lines = {
@@ -642,7 +652,6 @@ zone_ark_ammunition_lines = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.15
 		weapon_kinetic_from_soldiers = 0.05
 	}
@@ -656,7 +665,9 @@ zone_ark_ammunition_lines = {
 	}
 
 	ai_priority = 5
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_laser_capacitors = {
@@ -696,7 +707,6 @@ zone_ark_laser_capacitors = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.15
 		weapon_energy_from_soldiers = 0.05
 	}
@@ -710,7 +720,9 @@ zone_ark_laser_capacitors = {
 	}
 
 	ai_priority = 5
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_flight_decks = {
@@ -750,7 +762,6 @@ zone_ark_flight_decks = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.15
 		weapon_strike_craft_from_soldiers = 0.05
 	}
@@ -764,7 +775,9 @@ zone_ark_flight_decks = {
 	}
 
 	ai_priority = 5
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_military_eco = {
@@ -785,6 +798,9 @@ zone_ark_military_eco = {
 
 	zone_sets = {
 		ark_military
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -827,7 +843,6 @@ zone_ark_shipwright = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_soldiers_alloys_upkeep_add = 0.25
 		naval_cap_from_shipwright = 2
 		ship_build_speed_from_shipwright = 0.015
@@ -852,7 +867,9 @@ zone_ark_shipwright = {
 	}
 
 	ai_priority = 5
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_military_engineering = {
@@ -889,6 +906,9 @@ zone_ark_military_engineering = {
 	ai_priority = 15
 
 	ai_weight_coefficient = 1.1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 # Origin-Specific Zones
@@ -903,6 +923,9 @@ zone_ark_forever_cruise_passenger = {
 	zone_sets = {
 		ark_forever_cruise
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_forever_cruise_crew = {
@@ -914,6 +937,9 @@ zone_ark_forever_cruise_crew = {
 
 	zone_sets = {
 		ark_forever_cruise
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -952,6 +978,9 @@ zone_ark_forever_cruise_engineering = {
 	ai_priority = 15
 
 	ai_weight_coefficient = 1.1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_forever_cruise_city_passenger = {
@@ -964,6 +993,9 @@ zone_ark_forever_cruise_city_passenger = {
 	zone_sets = {
 		ark_forever_cruise_city
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_ark_forever_cruise_city_crew = {
@@ -975,6 +1007,9 @@ zone_ark_forever_cruise_city_crew = {
 
 	zone_sets = {
 		ark_forever_cruise_city
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -992,6 +1027,9 @@ zone_ark_forever_cruise_city_mixed = {
 	excluded_building_sets = {
 		generator
 		mining
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -1023,5 +1061,8 @@ zone_ark_sacred_path_pilgrims = {
 		trigger = {
 			owner? = { has_origin = origin_sacred_path }
 		}
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }

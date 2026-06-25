@@ -1,7 +1,3 @@
-# Simple More Building Slots — re-synced from current vanilla common/zones/02_special_zones.txt.
-# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
-# max_buildings added where a zone grants slots but has no cap (arkship, variants).
-
 
 zone_payback_enlightenment = {
 	icon = "GFX_district_specialization_payback_enlightenment"
@@ -52,9 +48,6 @@ zone_payback_enlightenment = {
 		AMOUNT = @scaling_district_unity_4_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -67,7 +60,9 @@ zone_payback_enlightenment = {
 	triggered_desc = {
 		text = zone_cannot_be_rebuilt
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_broken_shackles_memorial = {
@@ -110,7 +105,6 @@ zone_broken_shackles_memorial = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_amenities_add = 500
 		planet_civilians_unity_produces_add = 0.5
 	}
@@ -140,7 +134,9 @@ zone_broken_shackles_memorial = {
 	triggered_desc = {
 		text = zone_cannot_be_rebuilt
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_central_spire = {
@@ -173,7 +169,6 @@ zone_central_spire = {
 		planet_jobs_physics_research_produces_mult = 0.15
 		planet_jobs_society_research_produces_mult = 0.15
 		planet_jobs_engineering_research_produces_mult = 0.15
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 	}
 
 	ai_resource_production = {
@@ -199,5 +194,7 @@ zone_central_spire = {
 	triggered_desc = {
 		text = zone_cannot_be_rebuilt
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }

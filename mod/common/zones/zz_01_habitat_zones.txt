@@ -1,7 +1,3 @@
-# Simple More Building Slots — re-synced from current vanilla common/zones/01_habitat_zones.txt.
-# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
-# max_buildings added where a zone grants slots but has no cap (arkship, variants).
-
 
 zone_habitat_knights = {
 	icon = GFX_district_specialization_knight_commander
@@ -51,7 +47,6 @@ zone_habitat_knights = {
 		zone_fortress
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		habitat_urban
@@ -71,12 +66,12 @@ zone_habitat_knights = {
 		mult = owner.value:hab_void_dweller_jobs
     }
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -127,10 +122,9 @@ zone_habitat_hydroponics = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_habitat_research = {
@@ -164,10 +158,9 @@ zone_habitat_research = {
 		AMOUNT = @habitat_zone_district_3_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 }
 
 zone_habitat_research_unity = {
@@ -208,9 +201,6 @@ zone_habitat_research_unity = {
 		AMOUNT = @habitat_zone_district_unity_4_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -218,7 +208,9 @@ zone_habitat_research_unity = {
 		}
 		text = zone_research_unity_triggered_desc
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_habitat_rare_crystals = {
@@ -232,6 +224,9 @@ zone_habitat_rare_crystals = {
 
 	zone_sets = {
 		habitat_minerals
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -247,6 +242,9 @@ zone_habitat_volatile_motes = {
 	zone_sets = {
 		habitat_energy
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_habitat_exotic_gases = {
@@ -260,5 +258,8 @@ zone_habitat_exotic_gases = {
 
 	zone_sets = {
 		habitat_energy
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }

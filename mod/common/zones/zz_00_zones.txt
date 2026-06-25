@@ -1,7 +1,3 @@
-# Simple More Building Slots — re-synced from current vanilla common/zones/00_zones.txt.
-# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
-# max_buildings added where a zone grants slots but has no cap (arkship, variants).
-
 # Planet District Zones
 #
 # Documentation: ./99_HOW_TO_ZONE.txt
@@ -29,7 +25,6 @@ zone_default = {
 		}
 	}
 
-	max_buildings = 12
 
 	zone_sets = {
 		default
@@ -56,6 +51,9 @@ zone_default = {
 	}
 
 	ai_priority = 0
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_urban = {
@@ -94,7 +92,6 @@ zone_urban = {
 		planet_housing_add = @zone_urban_housing_positive
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		urban
@@ -118,9 +115,6 @@ zone_urban = {
 		urban_automation
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -131,6 +125,9 @@ zone_urban = {
 
 	ai_priority = 2
 	ai_weight_coefficient = 0.5
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_industrial = {
@@ -150,6 +147,9 @@ zone_industrial = {
 	}
 
 	ai_weight_coefficient = 1.1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_foundry = {
@@ -169,6 +169,9 @@ zone_foundry = {
 	}
 
 	ai_weight_coefficient = 1.2
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_factory = {
@@ -184,6 +187,9 @@ zone_factory = {
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -241,9 +247,6 @@ zone_research_unity = {
 		AMOUNT = @scaling_district_unity_4_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -257,7 +260,9 @@ zone_research_unity = {
 	}
 
 	ai_priority = 8
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_research = {
@@ -276,6 +281,9 @@ zone_research = {
 	}
 
 	ai_weight_coefficient = 1.2
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_research_physics = {
@@ -301,6 +309,9 @@ zone_research_physics = {
 	ai_priority = 15
 
 	ai_weight_coefficient = 1.1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_research_society = {
@@ -326,6 +337,9 @@ zone_research_society = {
 	ai_priority = 15
 
 	ai_weight_coefficient = 1.1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_research_engineering = {
@@ -351,6 +365,9 @@ zone_research_engineering = {
 	ai_priority = 15
 
 	ai_weight_coefficient = 1.1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_unity = {
@@ -372,6 +389,9 @@ zone_unity = {
 	convert_to = {
 		zone_unity_spiritualist
 		zone_unity_bio_trophy
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -395,6 +415,9 @@ zone_unity_spiritualist = {
 		zone_unity
 		zone_unity_bio_trophy
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_unity_bio_trophy = {
@@ -417,6 +440,9 @@ zone_unity_bio_trophy = {
 		zone_unity
 		zone_unity_spiritualist
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_fortress = {
@@ -432,6 +458,9 @@ zone_fortress = {
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -452,6 +481,9 @@ zone_trade = {
 	}
 
 	ai_weight_coefficient = 0.25
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 #Resort World Zones
@@ -495,16 +527,15 @@ zone_resort = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
 
 	ai_priority = 5
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_resort_entertainment = {
@@ -547,9 +578,6 @@ zone_resort_entertainment = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -563,7 +591,9 @@ zone_resort_entertainment = {
 	}
 
 	ai_priority = 10
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 #Resort World Attraction Zones
@@ -578,11 +608,6 @@ zone_resort_zoo = {
 			is_wilderness_empire = no
 		}
 		has_modifier = resort_colony
-		NOT = {
-			has_zone = {
-				zone = zone_resort_zoo
-			}
-		}
 	}
 	planet_limit = {
 		base = 1
@@ -623,7 +648,6 @@ zone_resort_zoo = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	triggered_desc = {
 		trigger = {
@@ -633,6 +657,9 @@ zone_resort_zoo = {
 	}
 
 	ai_priority = 10
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_resort_grand_museum = {
@@ -642,11 +669,6 @@ zone_resort_grand_museum = {
 		exists = owner
 		owner = {
 			is_wilderness_empire = no
-		}
-		NOT = {
-			has_zone = {
-				zone = zone_resort_grand_museum
-			}
 		}
 	}
 	planet_limit = {
@@ -686,7 +708,6 @@ zone_resort_grand_museum = {
 		job_bureaucrat_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -700,6 +721,9 @@ zone_resort_grand_museum = {
 	}
 
 	ai_priority = 10
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 #Not Xenophile
@@ -711,11 +735,6 @@ zone_resort_hunting_ground = {
 		owner = {
 			is_wilderness_empire = no
 			is_xenophile = no
-			NOT = {
-				has_zone = {
-					zone = zone_resort_hunting_ground
-				}
-			}
 		}
 	}
 	planet_limit = {
@@ -756,7 +775,6 @@ zone_resort_hunting_ground = {
 		job_wrangler_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -770,6 +788,9 @@ zone_resort_hunting_ground = {
 	}
 
 	ai_priority = 10
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 #Spiritualist Only
@@ -781,11 +802,6 @@ zone_resort_spiritual_retreat = {
 		owner = {
 			is_wilderness_empire = no
 			is_spiritualist = yes
-			NOT = {
-				has_zone = {
-					zone = zone_resort_spiritual_retreat
-				}
-			}
 		}
 	}
 	planet_limit = {
@@ -825,7 +841,6 @@ zone_resort_spiritual_retreat = {
 		job_bureaucrat_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -839,6 +854,9 @@ zone_resort_spiritual_retreat = {
 	}
 
 	ai_priority = 10
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 #Restoration Enclave
@@ -849,11 +867,6 @@ zone_resort_restoration_enclave = {
 		exists = owner
 		owner = {
 			is_wilderness_empire = no
-			NOT = {
-				has_zone = {
-					zone = zone_resort_restoration_enclave
-				}
-			}
 		}
 	}
 	planet_limit = {
@@ -893,7 +906,6 @@ zone_resort_restoration_enclave = {
 		job_healthcare_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -907,6 +919,9 @@ zone_resort_restoration_enclave = {
 	}
 
 	ai_priority = 10
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 #Proving Grounds
@@ -920,11 +935,6 @@ zone_resort_proving_grounds = {
 			OR = {
 				has_valid_civic = civic_warrior_culture
 				is_militarist = yes
-			}
-			NOT = {
-				has_zone = {
-					zone = zone_resort_proving_grounds
-				}
 			}
 		}
 	}
@@ -965,7 +975,6 @@ zone_resort_proving_grounds = {
 		job_entertainer_add = @doubled_scaling_district_1_job
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
@@ -979,6 +988,9 @@ zone_resort_proving_grounds = {
 	}
 
 	ai_priority = 10
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_minerals = {
@@ -997,6 +1009,9 @@ zone_minerals = {
 	show_tech_unlock_if = {
 		is_nomadic = no
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_betharian = {
@@ -1013,6 +1028,9 @@ zone_betharian = {
 	}
 
 	show_in_tech = tech_mine_betharian
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_rare_crystals = {
@@ -1032,6 +1050,9 @@ zone_rare_crystals = {
 
 	show_tech_unlock_if = {
 		is_nomadic = no
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -1085,7 +1106,6 @@ zone_minerals_physics = {
 	}
 
 	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
 		planet_miners_physics_research_produces_add = 0.5
 		planet_miners_minerals_produces_add = -1
 	}
@@ -1095,7 +1115,9 @@ zone_minerals_physics = {
 	zone_sets = {
 		minerals
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_energy = {
@@ -1111,6 +1133,9 @@ zone_energy = {
 	}
 
 	show_in_tech = tech_power_hub_1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_volatile_motes = {
@@ -1131,6 +1156,9 @@ zone_volatile_motes = {
 	show_tech_unlock_if = {
 		is_nomadic = no
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_food = {
@@ -1144,6 +1172,9 @@ zone_food = {
 	}
 
 	show_in_tech = tech_food_processing_1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_anglers = {
@@ -1209,12 +1240,11 @@ zone_anglers = {
 		farming_automation
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	ai_priority = 5
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_exotic_gases = {
@@ -1235,6 +1265,9 @@ zone_exotic_gases = {
 	show_tech_unlock_if = {
 		is_nomadic = no
 	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 #Hive World Zones
@@ -1250,6 +1283,9 @@ zone_spawning = {
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -1313,17 +1349,16 @@ zone_machine_replication = {
 		job_roboticist_add = 50
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
 
 	ai_priority = 12
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_subterranean_urban = {
@@ -1356,7 +1391,6 @@ zone_subterranean_urban = {
 		}
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		minerals
@@ -1379,11 +1413,11 @@ zone_subterranean_urban = {
 		AMOUNT = @bonus_scaling_district_2_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	ai_priority = 1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_agrarian_urban = {
@@ -1432,7 +1466,6 @@ zone_agrarian_urban = {
 		}
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		food
@@ -1455,11 +1488,11 @@ zone_agrarian_urban = {
 		AMOUNT = @bonus_scaling_district_2_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	ai_priority = 1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_agrarian_anglers = {
@@ -1496,7 +1529,6 @@ zone_agrarian_anglers = {
 		}
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		food
@@ -1525,20 +1557,22 @@ zone_agrarian_anglers = {
 		AMOUNT = @bonus_scaling_district_3_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	ai_priority = 1
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_cosmogenesis_default = {
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 	max_buildings_planet_class = yes
 	zone_sets = { cosmogenesis_default }
 	included_building_sets = { cosmogenesis_world }
 
 	ai_priority = 0
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 # zone_food_biology = {
@@ -1606,7 +1640,7 @@ zone_cosmogenesis_default = {
 # 	}
 #
 # 	planet_modifier = {
-# 		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+# 		zone_building_slots_add = 3
 # 		planet_farmers_produces_mult = @zone_rural_research_worker_produces_mult
 # 	}
 #
@@ -1694,7 +1728,7 @@ zone_cosmogenesis_default = {
 # 	}
 #
 # 	planet_modifier = {
-# 		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+# 		zone_building_slots_add = 3
 # 		planet_miners_produces_mult = @zone_rural_research_worker_produces_mult
 # 	}
 #
@@ -1783,7 +1817,7 @@ zone_cosmogenesis_default = {
 # 	}
 #
 # 	planet_modifier = {
-# 		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
+# 		zone_building_slots_add = 3
 # 		planet_technician_produces_mult = @zone_rural_research_worker_produces_mult
 # 	}
 #

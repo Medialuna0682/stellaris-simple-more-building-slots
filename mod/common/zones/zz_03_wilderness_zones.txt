@@ -1,7 +1,3 @@
-# Simple More Building Slots — re-synced from current vanilla common/zones/03_wilderness_zones.txt.
-# max_buildings / zone_building_slots_add -> @TINYGROX_MAX_BUILDINGS (capital zone_default = 12);
-# max_buildings added where a zone grants slots but has no cap (arkship, variants).
-
 # Planet District Zones
 #
 # Documentation: ./99_HOW_TO_ZONE.txt
@@ -32,7 +28,6 @@ zone_urban_wilderness = {
 		}
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
 
 	zone_sets = {
 		urban
@@ -50,15 +45,15 @@ zone_urban_wilderness = {
 		betharian
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
 			always = yes
 		}
 		text = zone_urban_triggered_desc
+	}
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -94,9 +89,6 @@ zone_foundry_wilderness = {
 		AMOUNT2 = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	zone_sets = {
 		urban
@@ -105,7 +97,9 @@ zone_foundry_wilderness = {
 	included_building_sets = {
 		foundry
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_research_wilderness = {
@@ -139,9 +133,6 @@ zone_research_wilderness = {
 		AMOUNT = @scaling_district_3_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	zone_sets = {
 		urban
@@ -157,7 +148,9 @@ zone_research_wilderness = {
 		}
 		text = zone_research_triggered_desc
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_unity_wilderness = {
@@ -191,9 +184,6 @@ zone_unity_wilderness = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	zone_sets = {
 		urban
@@ -209,7 +199,9 @@ zone_unity_wilderness = {
 		}
 		text = zone_unity_triggered_desc
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_research_unity_wilderness = {
@@ -258,9 +250,6 @@ zone_research_unity_wilderness = {
 		AMOUNT = @scaling_district_unity_4_jobs
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -268,7 +257,9 @@ zone_research_unity_wilderness = {
 		}
 		text = zone_research_unity_triggered_desc
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_trade_wilderness = {
@@ -310,9 +301,6 @@ zone_trade_wilderness = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -320,7 +308,9 @@ zone_trade_wilderness = {
 		}
 		text = zone_trade_triggered_desc
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_fortress_wilderness = {
@@ -354,9 +344,6 @@ zone_fortress_wilderness = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	zone_sets = {
 		urban
@@ -373,7 +360,9 @@ zone_fortress_wilderness = {
 		text = zone_fortress_triggered_desc
 	}
 
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_minerals_wilderness = {
@@ -408,9 +397,6 @@ zone_minerals_wilderness = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	zone_sets = {
 		minerals
@@ -427,7 +413,9 @@ zone_minerals_wilderness = {
 		}
 		text = zone_minerals_triggered_desc
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_energy_wilderness = {
@@ -461,9 +449,6 @@ zone_energy_wilderness = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	zone_sets = {
 		energy
@@ -484,7 +469,9 @@ zone_energy_wilderness = {
 	convert_to = {
 		zone_energy_ring_world
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }
 
 zone_food_wilderness = {
@@ -517,9 +504,6 @@ zone_food_wilderness = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	planet_modifier = {
-		zone_building_slots_add = @TINYGROX_MAX_BUILDINGS
-	}
 
 	zone_sets = {
 		food
@@ -541,5 +525,7 @@ zone_food_wilderness = {
 	convert_to = {
 		zone_food_ring_world
 	}
-	max_buildings = @TINYGROX_MAX_BUILDINGS
+	inline_script = {
+		script = zones/shared_add_building_slot_modifiers
+	}
 }

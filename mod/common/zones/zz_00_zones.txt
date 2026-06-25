@@ -1282,6 +1282,9 @@ zone_spawning = {
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
+	inline_script = {
+		script = zones/shared_add_building_slots_5
+	}
 }
 
 #Machine World Zones

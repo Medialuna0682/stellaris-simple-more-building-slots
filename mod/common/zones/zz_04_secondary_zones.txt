@@ -1540,4 +1540,7 @@ zone_spawning_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
+	inline_script = {
+		script = zones/shared_add_building_slots_5
+	}
 }

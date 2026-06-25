@@ -124,7 +124,7 @@ zone_urban = {
 	ai_priority = 2
 	ai_weight_coefficient = 0.5
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -146,7 +146,7 @@ zone_industrial = {
 
 	ai_weight_coefficient = 1.1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -168,7 +168,7 @@ zone_foundry = {
 
 	ai_weight_coefficient = 1.2
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -187,7 +187,7 @@ zone_factory = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -259,7 +259,7 @@ zone_research_unity = {
 
 	ai_priority = 8
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -280,7 +280,7 @@ zone_research = {
 
 	ai_weight_coefficient = 1.2
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -308,7 +308,7 @@ zone_research_physics = {
 
 	ai_weight_coefficient = 1.1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -336,7 +336,7 @@ zone_research_society = {
 
 	ai_weight_coefficient = 1.1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -364,7 +364,7 @@ zone_research_engineering = {
 
 	ai_weight_coefficient = 1.1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -389,7 +389,7 @@ zone_unity = {
 		zone_unity_bio_trophy
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -414,7 +414,7 @@ zone_unity_spiritualist = {
 		zone_unity_bio_trophy
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -439,7 +439,7 @@ zone_unity_bio_trophy = {
 		zone_unity_spiritualist
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -458,7 +458,7 @@ zone_fortress = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -480,7 +480,7 @@ zone_trade = {
 
 	ai_weight_coefficient = 0.25
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -532,7 +532,7 @@ zone_resort = {
 
 	ai_priority = 5
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -590,7 +590,7 @@ zone_resort_entertainment = {
 
 	ai_priority = 10
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -656,7 +656,7 @@ zone_resort_zoo = {
 
 	ai_priority = 10
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -720,7 +720,7 @@ zone_resort_grand_museum = {
 
 	ai_priority = 10
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -787,7 +787,7 @@ zone_resort_hunting_ground = {
 
 	ai_priority = 10
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -853,7 +853,7 @@ zone_resort_spiritual_retreat = {
 
 	ai_priority = 10
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -918,7 +918,7 @@ zone_resort_restoration_enclave = {
 
 	ai_priority = 10
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -987,7 +987,7 @@ zone_resort_proving_grounds = {
 
 	ai_priority = 10
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -1008,7 +1008,7 @@ zone_minerals = {
 		is_nomadic = no
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -1027,7 +1027,7 @@ zone_betharian = {
 
 	show_in_tech = tech_mine_betharian
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -1050,7 +1050,7 @@ zone_rare_crystals = {
 		is_nomadic = no
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -1114,7 +1114,7 @@ zone_minerals_physics = {
 		minerals
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -1132,7 +1132,7 @@ zone_energy = {
 
 	show_in_tech = tech_power_hub_1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -1155,7 +1155,7 @@ zone_volatile_motes = {
 		is_nomadic = no
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -1171,7 +1171,7 @@ zone_food = {
 
 	show_in_tech = tech_food_processing_1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -1241,7 +1241,7 @@ zone_anglers = {
 
 	ai_priority = 5
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -1264,7 +1264,7 @@ zone_exotic_gases = {
 		is_nomadic = no
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -1281,9 +1281,6 @@ zone_spawning = {
 
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
-	}
-	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
 	}
 }
 
@@ -1355,7 +1352,7 @@ zone_machine_replication = {
 
 	ai_priority = 12
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -1414,7 +1411,7 @@ zone_subterranean_urban = {
 
 	ai_priority = 1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -1489,7 +1486,7 @@ zone_agrarian_urban = {
 
 	ai_priority = 1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -1558,7 +1555,7 @@ zone_agrarian_anglers = {
 
 	ai_priority = 1
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -1569,7 +1566,7 @@ zone_cosmogenesis_default = {
 
 	ai_priority = 0
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 

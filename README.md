@@ -18,16 +18,24 @@ Not affiliated with or endorsed by the original author.
 
 ## How it works
 
-- A single shared inline script — `common/inline_scripts/zones/shared_add_building_slot_modifiers.txt` — supplies `max_buildings = 6` plus a `planet_modifier { zone_building_slots_add = 6 }`.
-- The `common/zones/zz_*` files are the vanilla zone definitions with that inline script inserted into **each** zone, and the vanilla `max_buildings` / `zone_building_slots_add` literals stripped so the shared values take over. The `zz_` prefix sorts them **after** the base-game files, so they override the matching zones by key.
-- `zone_default` (the capital / city zone) is the **sole exception**: it keeps its own `max_buildings = 12` and does **not** import the shared script (vanilla 6, doubled).
-- `interface/planet_view.gui` is a full-file override that widens the building-slot grid so the extra slots render.
+The target is **6** building slots per zone (vanilla 3, doubled). Slot count comes from a `planet_modifier { zone_building_slots_add }`, which the engine **sums** across a zone's inline scripts — so the top-up differs by what each zone already inherits from vanilla. Two shared inline scripts cover the cases:
+
+- **`shared_add_building_slots_6.txt`** — `max_buildings = 6` + `zone_building_slots_add = 6`. Used by the **44** zones that have **no** building-slot grant of their own.
+- **`shared_add_building_slots_3.txt`** — `max_buildings = 6` + `zone_building_slots_add = 3`. Used by the **98** zones that already inherit `zone_building_slots_add = 3` from a vanilla productive shared script (`shared_energy_zone`, `shared_minerals_zone`, …). 3 (vanilla) + 3 = **6**.
+
+The `common/zones/zz_*` files are the vanilla zone definitions with the right one of these inserted into each zone, and the vanilla `max_buildings` / `zone_building_slots_add` literals stripped. The `zz_` prefix sorts them **after** the base-game files, so they override the matching zones by key.
+
+Exceptions:
+- `zone_default` (capital / city) keeps its own `max_buildings = 12`, no import (vanilla 6, doubled).
+- `zone_spawning` / `zone_spawning_hive` are left at vanilla (single-building spawning zones; vanilla grants them only +1).
+
+`interface/planet_view.gui` is a full-file override that widens the building-slot grid so the extra slots render.
 
 ## Compatibility notes
 
 - Conflicts with any other mod that edits `interface/planet_view.gui`.
 - After a UI Overhaul Dynamic or Stellaris update, `planet_view.gui` should be re-synced from the latest UI Overhaul Dynamic file (it is a full-file override and will otherwise go stale).
-- After a major Stellaris update, re-sync the `common/zones/zz_*` files from current vanilla and re-insert the shared inline-script line into each zone (keeping `zone_default` at 12). The shared inline script itself rarely needs touching.
+- After a major Stellaris update, re-sync the `common/zones/zz_*` files from current vanilla and re-insert the inline-script line into each zone — `shared_add_building_slots_3` for zones that inherit a vanilla `zone_building_slots_add` from a productive shared script, `shared_add_building_slots_6` for those that don't (keeping `zone_default` at 12 and the spawning zones at vanilla). The shared inline scripts themselves rarely need touching.
 
 ---
 
@@ -51,13 +59,21 @@ Not affiliated with or endorsed by the original author.
 
 ## 工作原理
 
-- 单个共享内联脚本 —— `common/inline_scripts/zones/shared_add_building_slot_modifiers.txt` —— 提供 `max_buildings = 6` 以及 `planet_modifier { zone_building_slots_add = 6 }`。
-- `common/zones/zz_*` 文件是原版区划定义，在**每个**区划中插入了该内联脚本，并删除了原版的 `max_buildings` / `zone_building_slots_add` 字段，从而由共享值生效。`zz_` 前缀使这些文件排序在原版文件**之后**，按键覆盖对应区划。
-- `zone_default`（首都 / 城市区划）是**唯一例外**：保留自身的 `max_buildings = 12`，且**不**引入共享脚本（原版 6，翻倍）。
-- `interface/planet_view.gui` 为整文件覆盖，加宽了建筑槽位格子布局，使额外的槽位得以显示。
+目标是每个区划 **6** 个建筑槽位（原版 3，翻倍）。槽位数来自 `planet_modifier { zone_building_slots_add }`，而游戏引擎会把一个区划中多个内联脚本的该修正**相加**，因此补足量取决于该区划已从原版继承了多少。两个共享内联脚本覆盖了所有情况：
+
+- **`shared_add_building_slots_6.txt`** —— `max_buildings = 6` + `zone_building_slots_add = 6`。用于那 **44** 个本身没有任何建筑槽位加成的区划。
+- **`shared_add_building_slots_3.txt`** —— `max_buildings = 6` + `zone_building_slots_add = 3`。用于那 **98** 个已从原版“产出型”共享脚本（`shared_energy_zone`、`shared_minerals_zone` 等）继承了 `zone_building_slots_add = 3` 的区划。3（原版）+ 3 = **6**。
+
+`common/zones/zz_*` 文件是原版区划定义，在每个区划中插入了对应的那个脚本，并删除了原版的 `max_buildings` / `zone_building_slots_add` 字段。`zz_` 前缀使这些文件排序在原版文件**之后**，按键覆盖对应区划。
+
+例外：
+- `zone_default`（首都 / 城市区划）保留自身的 `max_buildings = 12`，不引入脚本（原版 6，翻倍）。
+- `zone_spawning` / `zone_spawning_hive` 保持原版（单建筑产卵区划；原版只给 +1）。
+
+`interface/planet_view.gui` 为整文件覆盖，加宽了建筑槽位格子布局，使额外的槽位得以显示。
 
 ## 兼容性
 
 - 与其他修改 `interface/planet_view.gui` 的 Mod 冲突。
 - 在 UI Overhaul Dynamic 或 Stellaris 更新后，应基于最新的 UI Overhaul Dynamic 文件重新同步 `planet_view.gui`（它是整文件覆盖，否则会过时）。
-- 在 Stellaris 大版本更新后，应基于当前原版重新同步 `common/zones/zz_*` 文件，并把共享内联脚本那一行重新插入每个区划（首都 `zone_default` 保持 12）。共享内联脚本本身通常无需改动。
+- 在 Stellaris 大版本更新后，应基于当前原版重新同步 `common/zones/zz_*` 文件，并把内联脚本那一行重新插入每个区划 —— 对于从原版“产出型”共享脚本继承了 `zone_building_slots_add` 的区划用 `shared_add_building_slots_3`，其余的用 `shared_add_building_slots_6`（首都 `zone_default` 保持 12，产卵区划保持原版）。共享内联脚本本身通常无需改动。

@@ -53,7 +53,7 @@ zone_urban_wilderness = {
 		text = zone_urban_triggered_desc
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -98,7 +98,7 @@ zone_foundry_wilderness = {
 		foundry
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -149,7 +149,7 @@ zone_research_wilderness = {
 		text = zone_research_triggered_desc
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -200,7 +200,7 @@ zone_unity_wilderness = {
 		text = zone_unity_triggered_desc
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -258,7 +258,7 @@ zone_research_unity_wilderness = {
 		text = zone_research_unity_triggered_desc
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -309,7 +309,7 @@ zone_trade_wilderness = {
 		text = zone_trade_triggered_desc
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -361,7 +361,7 @@ zone_fortress_wilderness = {
 	}
 
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -414,7 +414,7 @@ zone_minerals_wilderness = {
 		text = zone_minerals_triggered_desc
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -470,7 +470,7 @@ zone_energy_wilderness = {
 		zone_energy_ring_world
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -526,6 +526,6 @@ zone_food_wilderness = {
 		zone_food_ring_world
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }

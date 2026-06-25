@@ -71,7 +71,7 @@ zone_habitat_knights = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -123,7 +123,7 @@ zone_habitat_hydroponics = {
 	}
 
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -159,7 +159,7 @@ zone_habitat_research = {
 	}
 
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -209,7 +209,7 @@ zone_habitat_research_unity = {
 		text = zone_research_unity_triggered_desc
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_6
 	}
 }
 
@@ -226,7 +226,7 @@ zone_habitat_rare_crystals = {
 		habitat_minerals
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -243,7 +243,7 @@ zone_habitat_volatile_motes = {
 		habitat_energy
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }
 
@@ -260,6 +260,6 @@ zone_habitat_exotic_gases = {
 		habitat_energy
 	}
 	inline_script = {
-		script = zones/shared_add_building_slot_modifiers
+		script = zones/shared_add_building_slots_3
 	}
 }

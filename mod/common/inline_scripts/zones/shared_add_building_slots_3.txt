@@ -1,0 +1,5 @@
+max_buildings = 6
+
+planet_modifier = {
+	zone_building_slots_add = 3
+}

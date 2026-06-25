@@ -5,6 +5,11 @@
 @sidebar_list_height = 870
 # districts
 @district_rows = 12 # used in height calculation for districts_grid_box
+# portrait cityscape size
+@portrait_window_width = 890
+@portrait_window_height = 276
+@portrait_window_height_1200 = 336
+@portrait_window_height_1440 = 376
 guiTypes = {
 	## DEMOGRAPHICS SIZES ##
 	positionType = {
@@ -114,10 +119,6 @@ guiTypes = {
 				alwaysTransparent = yes
 			}
 		}
-		@portrait_window_width = 890
-		@portrait_window_height = 276
-		@portrait_window_height_1200 = 336
-		@portrait_window_height_1440 = 376
 		containerWindowType = {
 			name = "planet_portrait_window"
 			size = { width = @portrait_window_width height = @portrait_window_height }
@@ -219,16 +220,6 @@ guiTypes = {
 					alwaysTransparent = yes
 				}
 			}
-			# UIOD_WIP
-			#containerWindowType = {
-			#	name = "arkship_planet_top_bar"
-			#	position = { x = 0 y = -10 }
-			#	background = {
-			#		name = "arkship_planet_top_bar"
-			#		spriteType = "GFX_arkship_banner"
-			#		alwaysTransparent = yes
-			#	}
-			#}
 			buttonType = {
 				name = "flag"
 				quadTextureSprite = "GFX_empire_flag_64"
@@ -240,17 +231,18 @@ guiTypes = {
 		# Arkship Header Part
 		containerWindowType = {
 			name = "arkship_portrait_window"
-			size = { width = 860 height = 100%% }
+			size = { width = @portrait_window_width height = 100%% }
 			position = { x = 0 y = 0 }
 			clipping = no
 			background = {
 				name = "arkship_portrait_window"
 				spriteType = "GFX_invisible"
+				alwaysTransparent = yes
 			}
 			containerWindowType = {
 				name = "arkship_blueprint_background"
 				size = { width = 850 height = 630 }
-				position = { x = 5 y = 120 }
+				position = { x = 0 y = 115 }
 				background = {
 					name = "blueprint"
 					spriteType = "GFX_arkship_blueprint_background"
@@ -259,7 +251,7 @@ guiTypes = {
 			}
 			iconType = {
 				name = "arkship_header_background"
-				spriteType = "GFX_arkship_header_default"
+				spriteType = "GFX_arkship_planetview_header_civilian"
 				position = { x = 0 y = 0 }
 				alwaysTransparent = yes
 			}
@@ -297,7 +289,6 @@ guiTypes = {
 			vertical_alignment = center
 			alwaysTransparent = yes
 		}
-		# UIOD_WIP
 		buttonType = {
 			name = "arkship_focus_on"
 			position = { x = -239 y = 4 }
@@ -503,12 +494,12 @@ guiTypes = {
 				alwaysTransparent = yes
 			}
 		}
-		# UIOD_WIP
 		# Arkship
 		containerWindowType = {
 			name = "arkship_elements"
-			size = { width = 100% height = 100% }
+			size = { width = -330 height = 100% }
 			position = { x = 0 y = 0 }
+			clipping = no
 			background = {
 				name = "arkship_elements"
 				spriteType = "GFX_invisible"
@@ -517,7 +508,9 @@ guiTypes = {
 			iconType = {
 				name = "arkship_stage_icon"
 				spriteType = "GFX_arkship_blueprint_civilian_tier_1"
-				position = { x = 155 y = 272 }
+				position = { x = 0 y = 424 }
+				orientation = center_up
+				centerPosition = yes
 				scale = 1
 			}
 			containerWindowType = {
@@ -608,18 +601,27 @@ guiTypes = {
 				}
 			}
 			buttonType = {
-				name = "arkship_upgrade"
-				size = { x = 140 y = 52 }
-				position = { x = 708 y = 60 }
+				name = "arkship_inspect_ship"
 				quadTextureSprite = "GFX_tiling_button_standard_seethrough"
+				position = { x = 743 y = 7 }
+				size = { x = 140 y = 52 }
 				buttonFont = "font_text_14"
 				clicksound = "tab_click"
-				text = "STARBASE_UPGRADE"
+				buttonText = "SETTLE_DETAILS_TITLE"
+			}
+			buttonType = {
+				name = "arkship_upgrade"
+				quadTextureSprite = "GFX_tiling_button_standard_seethrough"
+				position = { x = 743 y = 64 }
+				size = { x = 140 y = 52 }
+				buttonFont = "font_text_14"
+				clicksound = "tab_click"
+				buttonText = "STARBASE_UPGRADE"
 			}
 			containerWindowType = {
 				name = "systems_header_container"
-				position = { x = 30 y = 201 }
-				size = { width = 136 height = 36 }
+				position = { x = 30 y = 199 }
+				size = { width = 136 height = 38 }
 				background = {
 					name = "systems_header_bg"
 					spriteType = "GFX_black_box_planet_view"
@@ -630,7 +632,7 @@ guiTypes = {
 					text = "SYSTEMS"
 					position = { x = 0 y = 0 }
 					maxWidth = 136
-					maxHeight = 36
+					maxHeight = 38
 					fixedSize = yes
 					format = center
 					vertical_alignment = center
@@ -647,19 +649,19 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "modules_header_container"
-				position = { x = 692 y = 201 }
-				size = { width = 136 height = 36 }
+				position = { x = 724 y = 199 }
+				size = { width = 136 height = 38 }
 				background = {
 					name = "modules_header_bg"
 					spriteType = "GFX_black_box_planet_view"
 				}
 				instantTextBoxType = {
 					name = "modules_header"
-					font = "font_text_14"
+					font = "font_text_16"
 					text = "STARBASE_MODULES"
 					position = { x = 0 y = 0 }
 					maxWidth = 136
-					maxHeight = 36
+					maxHeight = 38
 					fixedSize = yes
 					format = center
 					vertical_alignment = center
@@ -667,7 +669,7 @@ guiTypes = {
 			}
 			gridBoxType = {
 				name = "arkship_modules_grid"
-				position = { x = 702 y = 240 }
+				position = { x = 734 y = 240 }
 				size = { width = 120 height = 180 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 58 height = 58 }
@@ -676,19 +678,19 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "spinal_header_container"
-				position = { x = 692 y = 441 }
-				size = { width = 136 height = 36 }
+				position = { x = 724 y = 439 }
+				size = { width = 136 height = 38 }
 				background = {
 					name = "spinal_header_bg"
 					spriteType = "GFX_black_box_planet_view"
 				}
 				instantTextBoxType = {
 					name = "spinal_mount_header"
-					font = "font_text_14"
+					font = "font_text_16"
 					text = "ARKSHIP_SPINAL_MOUNT"
 					position = { x = 0 y = 0 }
 					maxWidth = 136
-					maxHeight = 36
+					maxHeight = 38
 					fixedSize = yes
 					format = center
 					vertical_alignment = center
@@ -696,7 +698,7 @@ guiTypes = {
 			}
 			gridBoxType = {
 				name = "arkship_spinal_mount_grid"
-				position = { x = 732 y = 480 }
+				position = { x = 764 y = 480 }
 				size = { width = 60 height = 60 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 58 height = 58 }
@@ -705,19 +707,19 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "view_contract_header_container"
-				position = { x = 608 y = 595 }
-				size = { width = 220 height = 36 }
+				position = { x = 640 y = 593 }
+				size = { width = 220 height = 38 }
 				background = {
 					name = "view_contract_header_bg"
 					spriteType = "GFX_black_box_planet_view"
 				}
 				instantTextBoxType = {
 					name = "view_contract_header"
-					font = "font_text_14"
+					font = "font_text_16"
 					text = "ARKSHIP_CONTROLS_VIEW_CONTRACT_HEADER"
 					position = { x = 0 y = 0 }
 					maxWidth = 220
-					maxHeight = 36
+					maxHeight = 38
 					fixedSize = yes
 					format = center
 					vertical_alignment = center
@@ -727,7 +729,7 @@ guiTypes = {
 			buttonType = {
 				name = "view_contract"
 				size = { x = 170 y = 42 }
-				position = { x = 633 y = 636 }
+				position = { x = 665 y = 636 }
 				quadTextureSprite = "GFX_tiling_button_standard_seethrough"
 				buttonFont = "font_text_14"
 				clicksound = "tab_click"
@@ -735,19 +737,19 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "lower_systems_header_container"
-				position = { x = 372 y = 620 }
-				size = { width = 116 height = 36 }
+				position = { x = 377 y = 620 }
+				size = { width = 136 height = 38 }
 				background = {
 					name = "lower_systems_header_bg"
 					spriteType = "GFX_black_box_planet_view"
 				}
 				instantTextBoxType = {
 					name = "lower_systems_header"
-					font = "font_text_14"
+					font = "font_text_16"
 					text = "SYSTEMS"
 					position = { x = 0 y = 0 }
-					maxWidth = 116
-					maxHeight = 36
+					maxWidth = 136
+					maxHeight = 38
 					fixedSize = yes
 					format = center
 					vertical_alignment = center
@@ -755,25 +757,18 @@ guiTypes = {
 			}
 			gridBoxType = {
 				name = "arkship_lower_buildings_grid"
-				position = { x = 311 y = 662 }
+				position = { x = 326 y = 664 }
 				size = { width = 240 height = 60 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 60 height = 60 }
 				add_horizontal = yes
 				max_slots_horizontal = 4
 			}
-			buttonType = {
-				name = "arkship_inspect_ship"
-				quadTextureSprite = "GFX_fleetview_inspect_ship"
-				position = { x = 795 y = 77 }
-				orientation = upper_right
-				buttonFont = "font_text_14"
-			}
 			# Arkship Fleet UI
 			containerWindowType = {
 				name = "fleet_status_container"
-				position = { x = 30 y = 595 }
-				size = { width = 220 height = 36 }
+				position = { x = 30 y = 593 }
+				size = { width = 220 height = 38 }
 				background = {
 					name = "fleet_status_bg"
 					spriteType = "GFX_black_box_planet_view"
@@ -784,7 +779,7 @@ guiTypes = {
 					text = "STATUS"
 					position = { x = 0 y = 0 }
 					maxWidth = 220
-					maxHeight = 36
+					maxHeight = 38
 					fixedSize = yes
 					format = center
 					vertical_alignment = center
@@ -797,7 +792,7 @@ guiTypes = {
 				text = "ORDERS"
 				position = { x = 35 y = 635 }
 				maxWidth = 210
-				maxHeight = 20
+				maxHeight = 32
 				fixedSize = yes
 				format = left
 				vertical_alignment = center
@@ -806,7 +801,7 @@ guiTypes = {
 				name = "arkship_activity_text"
 				font = "font_text_14"
 				text = "ACTIVITY"
-				position = { x = 35 y = 660 }
+				position = { x = 35 y = 667 }
 				maxWidth = 210
 				maxHeight = 64
 				fixedSize = yes
@@ -814,13 +809,12 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "arkship_right_panel"
-				position = { x = -10 y = 52 }
-				size = { width = 320 height = 340 }
+				size = { width = 310 height = 651 }
+				position = { x = 10 y = 48 }
 				orientation = upper_right
-				origo = upper_right
 				background = {
 					name = "control_bg"
-					spriteType = "GFX_dark_area_cut_light"
+					spriteType = "GFX_dark_area_cut"
 				}
 				containerWindowType = {
 					name = "arkship_controls_title_background"
@@ -831,7 +825,7 @@ guiTypes = {
 						spriteType = "GFX_dark_area_cut_light"
 					}
 					instantTextBoxType = {
-						name = "header"
+						name = "ARKSHIP_CONTROLS"
 						font = "font_text_18"
 						text = "ARKSHIP_CONTROLS_CONTROLS"
 						position = { x = 10 y = 0 }
@@ -845,22 +839,22 @@ guiTypes = {
 				}
 				containerWindowType = {
 					name = "arkship_governor_window"
-					position = { x = 5 y = 50 }
-					size = { width = 152 height = 160 }
+					position = { x = 0 y = 40 }
+					size = { width = 310 height = 256 }
 					clipping = yes
 					background = {
 						name = "background"
-						spriteType = "GFX_dark_area_cut_light"
+						spriteType = "GFX_invisible"
 					}
 				}
 				containerWindowType = {
 					name = "arkship_leader_portrait_container"
-					position = { x = 163 y = 50 }
-					size = { width = 152 height = 160 }
+					position = { x = 0 y = 296 }
+					size = { width = 310 height = 256 }
 					clipping = yes
 					background = {
 						name = "background"
-						spriteType = "GFX_dark_area_cut_light"
+						spriteType = "GFX_invisible"
 					}
 				}
 				containerWindowType = {
@@ -870,7 +864,7 @@ guiTypes = {
 					orientation = center_down
 					origo = center_down
 					background = {
-						name = "orbitals_background"
+						name = "modifiers_info"
 						spriteType = "GFX_darker_green_frame_area"
 						alwaysTransparent = yes
 					}
@@ -891,7 +885,7 @@ guiTypes = {
 						quadTextureSprite = "GFX_tiling_button_standard_seethrough"
 						buttonFont = "font_text_14"
 						clicksound = "tab_click"
-						text = "Assault Armies"
+						buttonText = "Assault Armies"
 					}
 					buttonType = {
 						name = "arkship_build_ships"
@@ -901,16 +895,15 @@ guiTypes = {
 						quadTextureSprite = "GFX_tiling_button_standard_seethrough"
 						buttonFont = "font_text_14"
 						clicksound = "tab_click"
-						text = "Shipyard"
+						buttonText = "Shipyard"
 					}
 				}
 			}
 			containerWindowType = {
 				name = "arkship_build_queue_info"
 				size = { width = 310 height = -10 }
-				position = { x = -10 y = 500 }
+				position = { x = 10 y = 709 }
 				orientation = upper_right
-				origo = upper_right
 				background = {
 					name = "build_queue_background"
 					spriteType = "GFX_tiles_dark_area_cut_8"
@@ -947,14 +940,14 @@ guiTypes = {
 					smoothListBoxType = {
 						name = "arkship_build_queue_list"
 						position = { x = 5 y = 4 }
-						size = { x = 300 y = 558 }
+						size = { x = 300 y = 172 }
 						if_scaled_resolution = {
 							min_height = 1200
-							size = { x = 300 y = 658 }
+							size = { x = 300 y = 232 }
 						}
 						if_scaled_resolution = {
 							min_height = 1440
-							size = { x = 300 y = 698 }
+							size = { x = 300 y = 272 }
 						}
 						borderSize = { x = 0 y = 0 }
 						scrollbarType = "standardlistbox_slider_thick"
@@ -1129,32 +1122,35 @@ guiTypes = {
 					alwaysTransparent = yes
 				}
 			}
-			# UIOD_WIP
 			containerWindowType = {
 				name = "decision_progress_window"
 				size = { width = 222 height = 107 }
-				position = { x = 300 y = -125 }
+				position = { x = 0 y = -120 }
+				orientation = center_up
+				origo = center_up
 				background = {
 					name = "decision_progress_bg"
 					spriteType = "GFX_dark_green_area_framed_cut"
-					alwaysTransparent = yes
+					#alwaysTransparent = yes
 				}
 				instantTextBoxType = {
 					name = "decision_progress_label"
 					font = "font_header_20"
 					text = "DECISION_PROGRESS"
-					position = { x = -25 y = 10 }
-					maxWidth = 275
+					position = { x = -100 y = 10 }
+					orientation = center_up
+					maxWidth = 200
 					maxHeight = 24
+					fixedSize = yes
 					format = center
+					vertical_alignment = center
 				}
 				buttonType = {
 					name = "cancel_decisions_button"
 					position = { x = 41 y = 30 }
 					spriteType = "GFX_standard_button_dark_116_34"
 					buttonFont = "font_text_14"
-					text = "CANCEL"
-					font = "font_text_14"
+					buttonText = "CANCEL"
 					oversound = "mouse_over"
 				}
 				iconType = {
@@ -1617,7 +1613,7 @@ guiTypes = {
 						position = { x = 0 y = 0 }
 						size = { width = 570 height = -10 }
 						format = "UPPER_LEFT"
-						slotSize = { width = 570 height = 280 }
+						slotSize = { width = 570 height = 170 }
 						add_horizontal = yes
 						max_slots_horizontal = 1
 						max_slots_vertical = 3
@@ -1712,7 +1708,7 @@ guiTypes = {
 				# Planetary Resources
 				containerWindowType = {
 					name = "planetary_resources"
-					size = { width = 300 height = 178 }
+					size = { width = 300 height = 284 }
 					position = { x = -10 y = 107 }
 					orientation = upper_right
 					origo = upper_right
@@ -1757,7 +1753,7 @@ guiTypes = {
 						text = "" # produced resources set in code
 						position = { x = 10 y = 36 }
 						maxWidth = 280
-						maxHeight = 64
+						maxHeight = 120
 						fixedSize = yes
 						format = center
 						vertical_alignment = center
@@ -1767,7 +1763,7 @@ guiTypes = {
 					containerWindowType = {
 						name = "planet_deficit_title"
 						size = { width = -5 height = 30 }
-						position = { x = 5 y = 105 }
+						position = { x = 5 y = 160 }
 						clipping = no
 						background = {
 							name = "background"
@@ -1799,9 +1795,9 @@ guiTypes = {
 						name = "planetary_consumption_output_amount"
 						font = "font_text_14"
 						text = "" # consumed resources set in code
-						position = { x = 10 y = 136 }
+						position = { x = 10 y = 191 }
 						maxWidth = 280
-						maxHeight = 36
+						maxHeight = 72
 						fixedSize = yes
 						format = center
 						vertical_alignment = center
@@ -3228,7 +3224,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "armies_stats_window"
 					position = { x = 20 y = 115 }
-					size = { width = 500 height = 60 }
+					size = { width = 400 height = 60 }
 					background = {
 						name = "armies_stats_window"
 						spriteType = "GFX_tiles_dark_area_cut_8"
@@ -3263,9 +3259,9 @@ guiTypes = {
 						name = "deploy_in_orbit_text"
 						font = "font_text_14"
 						text = "DEPLOY_IN_ORBIT"
-						position = { x = -320 y = 0 }
+						position = { x = -220 y = 0 }
 						orientation = upper_right
-						maxWidth = 290
+						maxWidth = 190
 						maxHeight = 30
 						fixedSize = yes
 						format = right
@@ -3283,9 +3279,9 @@ guiTypes = {
 						name = "include_in_army_builder_text"
 						font = "font_text_14"
 						text = "ARMY_BUILDER_CHECKBOX"
-						position = { x = -320 y = 30 }
+						position = { x = -220 y = 30 }
 						orientation = upper_right
-						maxWidth = 290
+						maxWidth = 190
 						maxHeight = 30
 						fixedSize = yes
 						format = right
@@ -3304,7 +3300,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "armies_list_window"
 					position = { x = 20 y = 185 }
-					size = { width = 500 height = -20 }
+					size = { width = 400 height = -20 }
 					background = {
 						name = "armies_list_window"
 						spriteType = "GFX_tiles_dark_area_cut_8"
@@ -3334,12 +3330,11 @@ guiTypes = {
 					# Armies Buttons
 					buttonType = {
 						name = "embark_all_button"
-						position = { x = 362 y = -8 }
+						position = { x = 262 y = -8 }
 						spriteType = "GFX_standard_button_116_34"
 						buttonFont = "font_text_14"
-						text = "PLANET_VIEW_EMBARK_ALL"
+						buttonText = "PLANET_VIEW_EMBARK_ALL"
 						pdx_tooltip = "PLANET_VIEW_EMBARK_INFO"
-						font = "font_text_14"
 						oversound = "mouse_over"
 						navLeft = "change"
 					}
@@ -3377,7 +3372,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "recruitment_list_window"
 					position = { x = -20 y = 115 }
-					size = { width = 350 height = -20 }
+					size = { width = 450 height = -20 }
 					orientation = upper_right
 					origo = upper_right
 					background = {
@@ -3409,7 +3404,7 @@ guiTypes = {
 					# Recruitment list
 					containerWindowType = {
 						name = "recruitment_window"
-						size = { width = 330 height = 100%% }
+						size = { width = 430 height = 100%% }
 						position = { x = 10 y = 44 }
 						background = {
 							name = "build_queue_background"
@@ -3419,7 +3414,7 @@ guiTypes = {
 						smoothListboxType = {
 							name = "recruitment_list"
 							position = { x = 0 y = 0 }
-							size = { x = 330 y = 315 }
+							size = { x = 430 y = 315 }
 							scrollbarType = "standardlistbox_slider_thick"
 							spacing = 6
 						}
@@ -4333,11 +4328,10 @@ guiTypes = {
 							position = { x = 1 y = 1 }
 							alwaysTransparent = yes
 						}
-						# UIOD_WIP
 						iconType = {
 							name = "district_overlay_icon"
 							spriteType = "GFX_resource_energy_large"
-							position = { x = 45 y = 1 }
+							position = { x = 50 y = 1 }
 							alwaysTransparent = yes
 						}
 					}
@@ -4769,11 +4763,11 @@ guiTypes = {
 					size = { x = @[ sidebar_width - 20 ] y = @sidebar_list_height }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 140 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
 					}
 					scrollbarType = "standardlistbox_slider_thick"
 					offset = { x = -3 y = 0 }
@@ -4877,11 +4871,11 @@ guiTypes = {
 					size = { x = @[ sidebar_width - 20 ] y = @sidebar_list_height }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 140 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
 					}
 					scrollbarType = "standardlistbox_slider_thick"
 					offset = { x = -3 y = 0 }
@@ -4911,11 +4905,11 @@ guiTypes = {
 					size = { x = @[ sidebar_width - 20 ] y = @sidebar_list_height }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 140 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
 					}
 					scrollbarType = "standardlistbox_slider_thick"
 					offset = { x = -3 y = 0 }
@@ -4944,11 +4938,11 @@ guiTypes = {
 					size = { x = @[ sidebar_width - 20 ] y = @sidebar_list_height }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 140 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
 					}
 					scrollbarType = "standardlistbox_slider_thick"
 					offset = { x = -3 y = 0 }
@@ -4979,11 +4973,11 @@ guiTypes = {
 					size = { x = @[ sidebar_width - 20 ] y = @sidebar_list_height }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 140 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
 					}
 					scrollbarType = "standardlistbox_slider_thick"
 					offset = { x = -3 y = 0 }
@@ -5013,11 +5007,11 @@ guiTypes = {
 					size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height - 40 ] }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height - 40 + 100 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height - 40 + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height - 40 + 140 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height - 40 + 100 ] }
 					}
 					scrollbarType = "standardlistbox_slider_thick"
 					offset = { x = -3 y = 0 }
@@ -5047,11 +5041,11 @@ guiTypes = {
 					size = { x = @[ sidebar_width - 20 ] y = @sidebar_list_height }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 140 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
 					}
 					scrollbarType = "standardlistbox_slider_thick"
 					offset = { x = -3 y = 0 }
@@ -5081,11 +5075,11 @@ guiTypes = {
 					size = { x = @[ sidebar_width - 20 ] y = @sidebar_list_height }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 140 ] }
+						size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
 					}
 					scrollbarType = "standardlistbox_slider_thick"
 					offset = { x = -3 y = 0 }
@@ -5114,11 +5108,11 @@ guiTypes = {
 					size = { width = @[ sidebar_width - 20 ] height = @sidebar_list_height }
 					if_scaled_resolution = {
 						min_height = 1200
-						size = { width = @[ sidebar_width - 20 ] height = @[ sidebar_list_height + 100 ] }
+						size = { width = @[ sidebar_width - 20 ] height = @[ sidebar_list_height + 60 ] }
 					}
 					if_scaled_resolution = {
 						min_height = 1440
-						size = { width = @[ sidebar_width - 20 ] height = @[ sidebar_list_height + 140 ] }
+						size = { width = @[ sidebar_width - 20 ] height = @[ sidebar_list_height + 100 ] }
 					}
 					position = { x = 10 y = 60 }
 					background = {
@@ -5131,11 +5125,11 @@ guiTypes = {
 						size = { x = 409 y = @sidebar_list_height }
 						if_scaled_resolution = {
 							min_height = 1200
-							size = { x = 409 y = @[ sidebar_list_height + 100 ] }
+							size = { x = 409 y = @[ sidebar_list_height + 60 ] }
 						}
 						if_scaled_resolution = {
 							min_height = 1440
-							size = { x = 409 y = @[ sidebar_list_height + 140 ] }
+							size = { x = 409 y = @[ sidebar_list_height + 100 ] }
 						}
 						scrollbarType = "standardlistbox_slider_thick"
 						offset = { x = -3 y = 0 }
@@ -5202,22 +5196,20 @@ guiTypes = {
 	# 1 width
 	containerWindowType = {
 		name = "planet_district_entry_width_1"
-		size = { width = 285 height = 225 } # 改动
+		size = { width = 285 height = 225 }
 		background = {
 			name = "districts_window_background"
 			spriteType = "GFX_dark_area"
 			alwaysTransparent = yes
 		}
-		buttonType = { # 按钮
+		buttonType = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
-			# size = { x = 285 y = 178 } # 跟 planet_district_entry 的 size 保持一致
 			size = { x = 285 y = 225 }
 			alwaysTransparent = yes
 		}
-		buttonType = { # 和按钮
+		buttonType = {
 			name = "district_button"
-			# size = { x = 285 y = 178 } # 跟 planet_district_entry 的 size 保持一致
 			size = { x = 285 y = 225 }
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
@@ -5298,11 +5290,10 @@ guiTypes = {
 			vertical_alignment = center
 			alwaysTransparent = yes
 		}
-		containerWindowType = { # 下方特化区划建造区划数量信息（格子）
+		containerWindowType = {
 			name = "district_box"
 			size = { width = -5 height = 28 }
-			# position = { x = 62 y = 143 }
-			position = { x = 62 y = 188 } # 改了
+			position = { x = 62 y = 188 }
 			gridBoxType = {
 				name = "district_box_grid"
 				position = { x = 0 y = 0 }
@@ -5315,11 +5306,10 @@ guiTypes = {
 			}
 		}
 		# Passed 30 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
-		containerWindowType = { # 下方特化区划建造区划数量信息（文字）
+		containerWindowType = {
 			name = "planet_district_cap_container"
 			size = { width = 46 height = 28 }
-			# position = { x = 8 y = 143 }
-			position = { x = 8 y = 188 } # 改了
+			position = { x = 8 y = 188 }
 			iconType = {
 				name = "cap_background"
 				spriteType = "GFX_district_any_big"
@@ -5339,10 +5329,9 @@ guiTypes = {
 			}
 		}
 		# Zone
-		containerWindowType = { # 下方特化区划的建筑格子区域
+		containerWindowType = {
 			name = "zone"
-			# size = { width = 185 height = 77 }
-			size = { width = 185 height = 134 } # 猛猛改
+			size = { width = 185 height = 134 }
 			position = { x = 91 y = 49 }
 			clipping = no
 			background = {
@@ -5350,11 +5339,10 @@ guiTypes = {
 				spriteType = "GFX_dark_area_cut_light"
 				alwaysTransparent = yes
 			}
-			buttonType = { # 按钮是主要修改对象，记得跟区域大小保持一致
+			buttonType = {
 				name = "zone_info_button"
 				position = { x = 0 y = 0 }
-				# size = { x = 185 y = 77 }
-				size = { x = 185 y = 134 } # 跟 zone 的 size 保持一致
+				size = { x = 185 y = 134 }
 				quadTextureSprite = "GFX_district_hover"
 				clicksound = "menu_slide_open"
 			}
@@ -5362,7 +5350,7 @@ guiTypes = {
 				name = "selection_highlight"
 				spriteType = "GFX_glow_tile_orange_no_padding"
 				position = { x = 0 y = 0 }
-				size = { x = 185 y = 134 } # 改
+				size = { x = 185 y = 134 }
 				alwaysTransparent = yes
 			}
 			# Buildings
@@ -5373,14 +5361,13 @@ guiTypes = {
 				format = "UPPER_LEFT"
 				slotSize = { width = 52 height = 60 }
 				add_horizontal = yes
-				max_slots_horizontal = 3 # 6
+				max_slots_horizontal = 3
 				max_slots_vertical = 4
 			}
-			iconType = { # 进度条
+			iconType = {
 				name = "progressbar"
 				spriteType = "GFX_zone_smaller_progressbar"
-				# position = { x = 20 y = 64 }
-				position = { x = 16 y = 64 } # 进度条位置还是保留了
+				position = { x = 16 y = 64 }
 				alwaysTransparent = yes
 			}
 			buttonType = {
@@ -5418,7 +5405,7 @@ guiTypes = {
 	# 2 width
 	containerWindowType = {
 		name = "planet_district_entry_width_2"
-		size = { width = 570 height = 285 } # 改了
+		size = { width = 570 height = 285 }
 		background = {
 			name = "districts_window_background"
 			spriteType = "GFX_dark_area"
@@ -5427,235 +5414,12 @@ guiTypes = {
 		buttonType = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
-			size = { x = 570 y = 285 } # 改
+			size = { x = 570 y = 285 }
 			alwaysTransparent = yes
 		}
 		buttonType = {
 			name = "district_button"
-			size = { x = 570 y = 285 } # 改
-			quadTextureSprite = "GFX_district_hover"
-			clicksound = "menu_slide_open"
-		}
-		instantTextBoxType = {
-			name = "name"
-			font = "font_text_14"
-			text = "District Name"
-			position = { x = 10 y = 5 }
-			maxWidth = 230
-			maxHeight = 20
-			fixedSize = yes
-			truncate = yes
-			format = left
-			vertical_alignment = center
-			alwaysTransparent = yes
-		}
-		instantTextBoxType = {
-			name = "triggered_name"
-			font = "font_text_14"
-			text = "Triggered Name"
-			position = { x = 240 y = 5 }
-			maxWidth = 230
-			maxHeight = 20
-			fixedSize = yes
-			truncate = yes
-			format = left
-			vertical_alignment = center
-			text_color_code = "Y"
-			alwaysTransparent = yes
-		}
-		buttonType = {
-			name = "build_district"
-			position = { x = -93 y = -6 }
-			orientation = upper_right
-			spriteType = "GFX_button_animated_75_24"
-			buttonFont = "font_text_14"
-			buttonText = "BUILD_DISTRICT_BUTTON"
-			borderSize = { x = 8 y = 0 }
-			oversound = "mouse_over"
-			pdx_tooltip = "BUILD_DISTRICT"
-			clicksound = "ui_queuing_district"
-		}
-		buttonType = {
-			name = "district_icon_frame"
-			quadTextureSprite = "GFX_tiles_frame_extra_light"
-			position = { x = 8 y = 48 }
-			size = { x = 79 y = 79 }
-			alwaysTransparent = yes
-		}
-		iconType = {
-			name = "district_icon"
-			spriteType = "GFX_district_unknown"
-			position = { x = 9 y = 49 }
-			alwaysTransparent = yes
-		}
-		iconType = {
-			name = "district_overlay_icon"
-			spriteType = "GFX_resource_energy_large"
-			position = { x = 56 y = 49 }
-			alwaysTransparent = yes
-		}
-		iconType = {
-			name = "progressbar"
-			spriteType = "GFX_district_progressbar"
-			position = { x = 9 y = 117 }
-			alwaysTransparent = yes
-		}
-		instantTextBoxType = {
-			name = "not_surveyed"
-			font = "font_header_20"
-			text = "UNKNOWN_SHORT"
-			position = { x = 8 y = 135 }
-			maxWidth = 79
-			maxHeight = 20
-			fixedSize = yes
-			format = center
-			vertical_alignment = center
-			alwaysTransparent = yes
-		}
-		containerWindowType = {
-			name = "district_box"
-			size = { width = -5 height = 28 }
-			position = { x = 62 y = 250 } # 改
-			gridBoxType = {
-				name = "district_box_grid"
-				position = { x = 0 y = 0 }
-				size = { width = -10 height = 45 }
-				format = "UPPER_LEFT"
-				slotSize = { width = 24 height = 10 }
-				max_slots_horizontal = 21
-				max_slots_vertical = 3
-				add_horizontal = yes
-			}
-		}
-		# Passed 15 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
-		containerWindowType = {
-			name = "planet_district_cap_container"
-			size = { width = 46 height = 28 }
-			position = { x = 8 y = 250 } # 改
-			iconType = {
-				name = "cap_background"
-				spriteType = "GFX_district_any_big"
-				position = { x = 0 y = 0 }
-				scale = 1
-			}
-			instantTextBoxType = {
-				name = "num_districts_text"
-				font = "font_text_14"
-				text = "10"
-				position = { x = 0 y = 0 }
-				maxWidth = 46
-				maxHeight = 28
-				fixedSize = yes
-				format = center
-				vertical_alignment = center
-			}
-		}
-		# Primary Zone
-		containerWindowType = {
-			name = "zone"
-			position = { x = 95 y = 35 }
-			size = { width = 164 height = 250 } # 改
-			verticalScrollbar = "right_vertical_slider_thick"
-			smooth_scrolling = yes
-			background = {
-				name = "zone"
-				spriteType = "GFX_invisible"
-				alwaysTransparent = yes
-			}
-			buttonType = {
-				name = "zone_info_button"
-				position = { x = 0 y = 0 }
-				size = { x = 164 y = 250 } # 改
-				quadTextureSprite = "GFX_district_hover"
-				clicksound = "menu_slide_open"
-			}
-			buttonType = {
-				name = "selection_highlight"
-				spriteType = "GFX_glow_tile_orange_no_padding"
-				position = { x = 0 y = 0 }
-				size = { x = 164 y = 250 } # 改
-				alwaysTransparent = yes
-			}
-			# Buildings
-			gridBoxType = {
-				name = "buildings_box"
-				position = { x = 5 y = 0 }
-				size = { width = 205 height = -10 }
-				format = "UPPER_LEFT"
-				slotSize = { width = 52 height = 53 }
-				add_horizontal = yes
-				max_slots_horizontal = 3 # 水平方向上最多显示 3 格，可以看成列数
-				max_slots_vertical = 4 # 竖直方向上最多显示 4 格 => 3 * 4 = 12
-			}
-			iconType = {
-				name = "progressbar"
-				spriteType = "GFX_zone_smaller_progressbar"
-				position = { x = 5 y = 48 }
-				alwaysTransparent = yes
-			}
-			buttonType = {
-				name = "zone_button"
-				spriteType = "GFX_new_zone"
-				position = { x = 20 y = 0 }
-				orientation = center_left
-				centerPosition = yes
-				clicksound = "menu_slide_open"
-			}
-			instantTextBoxType = {
-				name = "zone_available"
-				font = "font_text_14"
-				text = "zone_available"
-				position = { x = 40 y = 5 }
-				maxWidth = 119
-				maxHeight = 93
-				fixedSize = yes
-				format = center
-				vertical_alignment = center
-				alwaysTransparent = yes
-			}
-			instantTextBoxType = {
-				name = "zone_unavailable"
-				font = "font_text_14"
-				text = ""
-				position = { x = 5 y = 5 }
-				maxWidth = 154
-				maxHeight = 93
-				fixedSize = yes
-				format = center
-				vertical_alignment = center
-				alwaysTransparent = yes
-			}
-		}
-		# Secondary Zones
-		gridBoxType = {
-			name = "zones_grid_box"
-			position = { x = 268 y = 35 }
-			size = { width = 291 height = -10 }
-			format = "UPPER_LEFT"
-			slotSize = { width = 291 height = 108 } # 排列格子
-			add_horizontal = yes
-			max_slots_horizontal = 1
-			max_slots_vertical = 3
-		}
-	}
-	# 3 width
-	containerWindowType = {
-		name = "planet_district_entry_width_3"
-		size = { width = 861 height = 285 }
-		background = {
-			name = "districts_window_background"
-			spriteType = "GFX_dark_area"
-			alwaysTransparent = yes
-		}
-		buttonType = {
-			name = "selection_highlight"
-			spriteType = "GFX_glow_tile_orange_no_padding"
-			size = { x = 861 y = 285 }
-			alwaysTransparent = yes
-		}
-		buttonType = {
-			name = "district_button"
-			size = { x = 861 y = 285 }
+			size = { x = 570 y = 285 }
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}
@@ -5745,7 +5509,7 @@ guiTypes = {
 				size = { width = -10 height = 45 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 24 height = 10 }
-				max_slots_horizontal = 33
+				max_slots_horizontal = 21
 				max_slots_vertical = 3
 				add_horizontal = yes
 			}
@@ -5777,7 +5541,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "zone"
 			position = { x = 95 y = 35 }
-			size = { width = 164 height = 250 }
+			size = { width = 164 height = 210 }
 			verticalScrollbar = "right_vertical_slider_thick"
 			smooth_scrolling = yes
 			background = {
@@ -5788,7 +5552,7 @@ guiTypes = {
 			buttonType = {
 				name = "zone_info_button"
 				position = { x = 0 y = 0 }
-				size = { x = 164 y = 250 }
+				size = { x = 164 y = 210 }
 				quadTextureSprite = "GFX_district_hover"
 				clicksound = "menu_slide_open"
 			}
@@ -5796,7 +5560,7 @@ guiTypes = {
 				name = "selection_highlight"
 				spriteType = "GFX_glow_tile_orange_no_padding"
 				position = { x = 0 y = 0 }
-				size = { x = 164 y = 250 }
+				size = { x = 164 y = 210 }
 				alwaysTransparent = yes
 			}
 			# Buildings
@@ -5853,9 +5617,232 @@ guiTypes = {
 		gridBoxType = {
 			name = "zones_grid_box"
 			position = { x = 268 y = 35 }
+			size = { width = 291 height = -10 }
+			format = "UPPER_LEFT"
+			slotSize = { width = 291 height = 108 }
+			add_horizontal = yes
+			max_slots_horizontal = 1
+			max_slots_vertical = 3
+		}
+	}
+	# 3 width
+	containerWindowType = {
+		name = "planet_district_entry_width_3"
+		size = { width = 861 height = 178 }
+		background = {
+			name = "districts_window_background"
+			spriteType = "GFX_dark_area"
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "selection_highlight"
+			spriteType = "GFX_glow_tile_orange_no_padding"
+			size = { x = 861 y = 178 }
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "district_button"
+			size = { x = 861 y = 178 }
+			quadTextureSprite = "GFX_district_hover"
+			clicksound = "menu_slide_open"
+		}
+		instantTextBoxType = {
+			name = "name"
+			font = "font_text_14"
+			text = "District Name"
+			position = { x = 10 y = 5 }
+			maxWidth = 230
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "triggered_name"
+			font = "font_text_14"
+			text = "Triggered Name"
+			position = { x = 240 y = 5 }
+			maxWidth = 230
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = center
+			text_color_code = "Y"
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "build_district"
+			position = { x = -93 y = -6 }
+			orientation = upper_right
+			spriteType = "GFX_button_animated_75_24"
+			buttonFont = "font_text_14"
+			buttonText = "BUILD_DISTRICT_BUTTON"
+			borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			pdx_tooltip = "BUILD_DISTRICT"
+			clicksound = "ui_queuing_district"
+		}
+		buttonType = {
+			name = "district_icon_frame"
+			quadTextureSprite = "GFX_tiles_frame_extra_light"
+			position = { x = 8 y = 48 }
+			size = { x = 79 y = 79 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_icon"
+			spriteType = "GFX_district_unknown"
+			position = { x = 9 y = 49 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_overlay_icon"
+			spriteType = "GFX_resource_energy_large"
+			position = { x = 56 y = 49 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "progressbar"
+			spriteType = "GFX_district_progressbar"
+			position = { x = 9 y = 117 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "not_surveyed"
+			font = "font_header_20"
+			text = "UNKNOWN_SHORT"
+			position = { x = 8 y = 135 }
+			maxWidth = 79
+			maxHeight = 20
+			fixedSize = yes
+			format = center
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		containerWindowType = {
+			name = "district_box"
+			size = { width = -5 height = 28 }
+			position = { x = 62 y = 143 }
+			gridBoxType = {
+				name = "district_box_grid"
+				position = { x = 0 y = 0 }
+				size = { width = -10 height = 45 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 24 height = 10 }
+				max_slots_horizontal = 33
+				max_slots_vertical = 3
+				add_horizontal = yes
+			}
+		}
+		# Passed 15 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
+		containerWindowType = {
+			name = "planet_district_cap_container"
+			size = { width = 46 height = 28 }
+			position = { x = 8 y = 143 }
+			iconType = {
+				name = "cap_background"
+				spriteType = "GFX_district_any_big"
+				position = { x = 0 y = 0 }
+				scale = 1
+			}
+			instantTextBoxType = {
+				name = "num_districts_text"
+				font = "font_text_14"
+				text = "10"
+				position = { x = 0 y = 0 }
+				maxWidth = 46
+				maxHeight = 28
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+			}
+		}
+		# Primary Zone
+		containerWindowType = {
+			name = "zone"
+			position = { x = 95 y = 35 }
+			size = { width = 164 height = 103 }
+			verticalScrollbar = "right_vertical_slider_thick"
+			smooth_scrolling = yes
+			background = {
+				name = "zone"
+				spriteType = "GFX_invisible"
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_info_button"
+				position = { x = 0 y = 0 }
+				size = { x = 164 y = 103 }
+				quadTextureSprite = "GFX_district_hover"
+				clicksound = "menu_slide_open"
+			}
+			buttonType = {
+				name = "selection_highlight"
+				spriteType = "GFX_glow_tile_orange_no_padding"
+				position = { x = 0 y = 0 }
+				size = { x = 164 y = 103 }
+				alwaysTransparent = yes
+			}
+			# Buildings
+			gridBoxType = {
+				name = "buildings_box"
+				position = { x = 5 y = 0 }
+				size = { width = 205 height = -10 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 52 height = 53 }
+				add_horizontal = yes
+				max_slots_horizontal = 3
+				max_slots_vertical = 2
+			}
+			iconType = {
+				name = "progressbar"
+				spriteType = "GFX_zone_smaller_progressbar"
+				position = { x = 5 y = 48 }
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_button"
+				spriteType = "GFX_new_zone"
+				position = { x = 20 y = 0 }
+				orientation = center_left
+				centerPosition = yes
+				clicksound = "menu_slide_open"
+			}
+			instantTextBoxType = {
+				name = "zone_available"
+				font = "font_text_14"
+				text = "zone_available"
+				position = { x = 40 y = 5 }
+				maxWidth = 119
+				maxHeight = 93
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "zone_unavailable"
+				font = "font_text_14"
+				text = ""
+				position = { x = 5 y = 5 }
+				maxWidth = 154
+				maxHeight = 93
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+		}
+		# Secondary Zones
+		gridBoxType = {
+			name = "zones_grid_box"
+			position = { x = 268 y = 35 }
 			size = { width = 590 height = -10 }
 			format = "UPPER_LEFT"
-			slotSize = { width = 295 height = 108 }
+			slotSize = { width = 295 height = 53 }
 			add_horizontal = yes
 			max_slots_horizontal = 2
 			max_slots_vertical = 3
@@ -5872,27 +5859,24 @@ guiTypes = {
 	containerWindowType = {
 		name = "zone_entry"
 		position = { x = 0 y = 0 }
-		# size = { width = 291 height = 50 }
-		size = { width = 291 height = 100 } # 我TM滚轮滚爆
+		size = { width = 291 height = 100 }
 		background = {
 			name = "background"
 			spriteType = "GFX_dark_area"
 			alpha = 0.7
 		}
-		buttonType = { # 按钮也要改
+		buttonType = {
 			name = "zone_info_button"
 			position = { x = 0 y = 0 }
-			# size = { x = 291 y = 49 } # 跟 zone_entry 的 size 保持一致
 			size = { x = 291 y = 99 }
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}
-		buttonType = { # 这里也是，highlight 什么意思不用我多说了吧
+		buttonType = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
 			position = { x = 0 y = 0 }
-			# size = { x = 291 y = 50 }
-			size = { x = 291 y = 100 } # 改
+			size = { x = 291 y = 100 }
 			alwaysTransparent = yes
 		}
 		instantTextBoxType = {
@@ -5915,7 +5899,7 @@ guiTypes = {
 			alwaysTransparent = yes
 		}
 		# Buildings
-		gridBoxType = { # 建筑按钮排列
+		gridBoxType = {
 			name = "buildings_box"
 			position = { x = 136 y = 0 }
 			size = { width = 156 height = 205 }
@@ -5923,7 +5907,7 @@ guiTypes = {
 			slotSize = { width = 52 height = 50 }
 			add_horizontal = yes
 			max_slots_horizontal = 3
-			max_slots_vertical = 2 # 改
+			max_slots_vertical = 2
 		}
 		buttonType = {
 			name = "zone_button"
@@ -5955,11 +5939,10 @@ guiTypes = {
 			vertical_alignment = center
 			alwaysTransparent = yes
 		}
-		iconType = { # 区划下方建造进度条显示
+		iconType = {
 			name = "progressbar"
 			spriteType = "GFX_zone_progressbar"
-			# position = { x = 3 y = 40 }
-			position = { x = 3 y = 90 } # 大小是 285x10 所以 y 的位置是 100 - 10 = 90
+			position = { x = 3 y = 90 }
 			alwaysTransparent = yes
 		}
 	}
@@ -6433,78 +6416,6 @@ guiTypes = {
 			oversound = "no_sound"
 		}
 	}
-	# UIOD_WIP
-	containerWindowType = {
-		name = "planet_decision_entry_old"
-		position = { x = 0 y = 0 }
-		size = { width = @[ sidebar_width - 20 ] height = 49 }
-		background = {
-			name = "background"
-			spriteType = "GFX_tiles_frame" # "GFX_planet_entry_button"
-		}
-		containerWindowType = {
-			name = "decision_name"
-			size = { width = @[ sidebar_width - 20 ] height = 22 }
-			position = { x = 0 y = 0 }
-			instantTextBoxType = {
-				name = "decision_name"
-				font = "font_text_18"
-				text = "Decision Name"
-				position = { x = 47 y = 0 }
-				maxWidth = 381
-				maxHeight = 28
-				fixedSize = yes
-				format = center
-				vertical_alignment = center
-				text_color_code = "H"
-				alwaysTransparent = yes
-			}
-		}
-		containerWindowType = {
-			name = "decision_effects"
-			size = { width = 0 height = 0 }
-			position = { x = 0 y = 0 }
-			background = {
-				name = "background"
-				spriteType = "GFX_invisible"
-				alwaysTransparent = yes
-			}
-			instantTextBoxType = {
-				name = "decision_effects"
-				font = "font_text_14"
-				text = "Decision effects go here"
-				position = { x = 0 y = 0 }
-				maxWidth = 1
-				maxHeight = 1
-				fixedSize = yes
-				alwaysTransparent = yes
-			}
-		}
-		iconType = {
-			name = "decision_icon"
-			spriteType = "GFX_decision_unknown"
-			position = { x = 2 y = 2 }
-			alwaysTransparent = yes
-		}
-		instantTextBoxType = {
-			name = "decision_cost"
-			font = "font_text_14"
-			text = "5 minerals 1 apple"
-			position = { x = 47 y = 27 }
-			maxWidth = 381
-			maxHeight = 60
-			fixedSize = yes
-			format = center
-			alwaysTransparent = yes
-		}
-		buttonType = {
-			name = "button_decision"
-			quadTextureSprite = "GFX_button_light"
-			position = { x = -1 y = -1 }
-			clicksound = "queuing_building"
-			size = { x = @[ sidebar_width - 18 ] y = 51 }
-		}
-	}
 	containerWindowType = { # planet_decision_entry
 		name = "planet_decision_entry"
 		position = { x = 0 y = 0 }
@@ -6608,6 +6519,7 @@ guiTypes = {
 			spriteType = "GFX_imp_dec_background"
 			position = { x = -221 y = -48 }
 			orientation = lower_right
+			alwaysTransparent = yes
 		}
 		containerWindowType = {
 			name = "decision_name"
@@ -6667,9 +6579,9 @@ guiTypes = {
 		buttonType = {
 			name = "button_decision"
 			quadTextureSprite = "GFX_button_important_decision"
-			position = { x = 1 y = -1 }
+			position = { x = 0 y = 0 }
 			clicksound = "queuing_building"
-			size = { x = @[ sidebar_width - 18 ] y = 51 }
+			size = { x = @[ sidebar_width - 20 ] y = 49 }
 		}
 	}
 	containerWindowType = {
@@ -7310,13 +7222,6 @@ guiTypes = {
 					format = "UPPER_LEFT"
 					add_horizontal = yes
 				}
-				# Placeholder for the slider "tip"
-				buttonType = {
-					name = "job_workforce_slider_setting"
-					spriteType = "GFX_district_workforce_slider"
-					position = { x = 5 y = 14 } # Used as the position of the leftmost slot.
-					centerPosition = yes
-				}
 				containerWindowType = {
 					name = "job_workforce_buttons_background"
 					size = { width = 53 height = 30 }
@@ -7342,11 +7247,17 @@ guiTypes = {
 					orientation = upper_right
 					oversound = "no_sound"
 				}
-				# UIOD_WIP
 				buttonType = {
 					name = "job_automated_workforce_slider_setting"
 					spriteType = "GFX_district_automated_workforce_slider"
-					position = { x = 0 y = 0 } # Used as the position of the leftmost slot; updated dynamically.
+					position = { x = 12 y = 14 } # Used as the position of the leftmost slot; updated dynamically.
+					centerPosition = yes
+				}
+				# Placeholder for the slider "tip"
+				buttonType = {
+					name = "job_workforce_slider_setting"
+					spriteType = "GFX_district_workforce_slider"
+					position = { x = 5 y = 14 } # Used as the position of the leftmost slot.
 					centerPosition = yes
 				}
 				instantTextBoxType = {
@@ -8136,7 +8047,7 @@ guiTypes = {
 	}
 	containerWindowType = {
 		name = "planet_recruitment_entry"
-		size = { width = 330 height = 40 }
+		size = { width = 430 height = 40 }
 		background = {
 			name = "background"
 			spriteType = "GFX_dark_area_button"
@@ -8189,7 +8100,7 @@ guiTypes = {
 		buttonType = {
 			name = "recruit_button"
 			position = { x = -1 y = -1 }
-			size = { x = 332 y = 42 }
+			size = { x = 432 y = 42 }
 			quadTextureSprite = "GFX_button_light"
 			clicksound = "queuing_army"
 		}
@@ -8252,7 +8163,7 @@ guiTypes = {
 	}
 	containerWindowType = {
 		name = "planet_army_entry"
-		size = { width = 480 height = 40 }
+		size = { width = 380 height = 40 }
 		background = {
 			name = "background"
 			spriteType = "GFX_tiles_dark_area_cut_8"
@@ -8268,7 +8179,7 @@ guiTypes = {
 			font = "font_text_16"
 			text = "Army Name"
 			position = { x = 26 y = 0 }
-			maxWidth = 230
+			maxWidth = 200
 			maxHeight = 20
 			fixedSize = yes
 			format = left
@@ -8280,7 +8191,7 @@ guiTypes = {
 			font = "font_text_14"
 			text = "Army Species"
 			position = { x = 26 y = 20 }
-			maxWidth = 230
+			maxWidth = 200
 			maxHeight = 20
 			fixedSize = yes
 			format = left
@@ -8400,25 +8311,25 @@ guiTypes = {
 			font = "font_text_14"
 			text = "Time left: 1 day"
 			position = { x = 5 y = 18 }
-			maxWidth = 230
+			maxWidth = 60
 			maxHeight = 18
 			fixedSize = yes
 			format = left
 			vertical_alignment = top
 			alwaysTransparent = yes
 		}
-		# UIOD_WIP
 		instantTextBoxType = {
 			name = "name"
 			font = "font_text_14"
-			position = { x = 5 y = 0 }
-			maxWidth = 230
-			maxHeight = 36
+			text = ""
+			position = { x = 68 y = 18 }
+			maxWidth = 168
+			maxHeight = 18
 			fixedSize = yes
 			format = left
-			vertical_alignment = bottom
-			text_color_code = "E"
+			vertical_alignment = top
 			alwaysTransparent = yes
+			text_color_code = "E"
 		}
 		containerWindowType = {
 			name = "priority_buttons_bg"
@@ -8482,12 +8393,25 @@ guiTypes = {
 			font = "font_text_14"
 			text = "Time left: 1 day"
 			position = { x = 5 y = 18 }
-			maxWidth = 230
+			maxWidth = 60
 			maxHeight = 18
 			fixedSize = yes
 			format = left
 			vertical_alignment = top
 			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "name"
+			font = "font_text_14"
+			text = ""
+			position = { x = 68 y = 18 }
+			maxWidth = 168
+			maxHeight = 18
+			fixedSize = yes
+			format = left
+			vertical_alignment = top
+			alwaysTransparent = yes
+			text_color_code = "E"
 		}
 		containerWindowType = {
 			name = "priority_buttons_bg"
@@ -8855,7 +8779,6 @@ guiTypes = {
 			size = { x = 160 y = 28 }
 		}
 	}
-	# UIOD_WIP
 	# arkship
 	containerWindowType = {
 		name = "arkship_build_queue_entry"
@@ -8886,7 +8809,7 @@ guiTypes = {
 			font = "font_text_14"
 			text = ""
 			position = { x = 5 y = 18 }
-			maxWidth = 230
+			maxWidth = 60
 			maxHeight = 18
 			fixedSize = yes
 			format = left
@@ -8897,11 +8820,12 @@ guiTypes = {
 			name = "name"
 			font = "font_text_14"
 			text = ""
-			position = { x = 68 y = 19 }
-			maxWidth = 140
-			maxHeight = 20
+			position = { x = 68 y = 18 }
+			maxWidth = 168
+			maxHeight = 18
 			fixedSize = yes
 			format = left
+			vertical_alignment = top
 			alwaysTransparent = yes
 			text_color_code = "E"
 		}
@@ -8988,12 +8912,20 @@ guiTypes = {
 		}
 		smoothListboxType = {
 			name = "entries_list"
-			position = { x = 10 y = 53 }
-			size = { x = 430 y = 806 }
+			position = { x = 10 y = 60 }
+			size = { x = @[ sidebar_width - 20 ] y = @sidebar_list_height }
+			if_scaled_resolution = {
+				min_height = 1200
+				size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 60 ] }
+			}
+			if_scaled_resolution = {
+				min_height = 1440
+				size = { x = @[ sidebar_width - 20 ] y = @[ sidebar_list_height + 100 ] }
+			}
 			scrollbarType = "standardlistbox_slider_thick"
-			borderSize = { x = 0 y = 0 }
 			offset = { x = -3 y = 0 }
-			spacing = 1
+			borderSize = { x = 0 y = 0 }
+			spacing = 4
 		}
 	}
 }

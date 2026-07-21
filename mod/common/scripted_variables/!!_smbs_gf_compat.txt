@@ -1,0 +1,11 @@
+# Compatibility patch for 少女前线群星故事集【正史线：危机联合】
+# (Girls' Frontline Stellaris Story Collection, Workshop 2068768158)
+#
+# GF's custom zones size their building grids from these scripted variables.
+# We override them to this mod's values (government/capital = 12, others = 6).
+#
+# scripted_variables use FIOS (first-loaded wins), so this file must load
+# before GF_scripted_variables.txt -- the "!!" prefix sorts it first.
+# Harmless when GF is not in the playset (the variables are simply unused).
+@GF_zone_government_max_buildings = 12
+@GF_zone_normal_max_buildings = 6

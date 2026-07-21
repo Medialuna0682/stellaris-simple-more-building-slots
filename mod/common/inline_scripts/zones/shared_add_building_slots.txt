@@ -1,0 +1,1 @@
+max_buildings = 6

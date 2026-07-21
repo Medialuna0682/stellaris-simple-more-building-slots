@@ -70,9 +70,7 @@ zone_habitat_knights = {
 	inline_script = {
 		script = zones/shared_city_non_urban_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_habitat_hydroponics = {
@@ -122,9 +120,7 @@ zone_habitat_hydroponics = {
 		AMOUNT = @scaling_district_1_job
 	}
 
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_habitat_research = {
@@ -158,9 +154,7 @@ zone_habitat_research = {
 		AMOUNT = @habitat_zone_district_3_jobs
 	}
 
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_habitat_research_unity = {
@@ -208,9 +202,7 @@ zone_habitat_research_unity = {
 		}
 		text = zone_research_unity_triggered_desc
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_habitat_rare_crystals = {
@@ -225,9 +217,7 @@ zone_habitat_rare_crystals = {
 	zone_sets = {
 		habitat_minerals
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_habitat_volatile_motes = {
@@ -242,9 +232,7 @@ zone_habitat_volatile_motes = {
 	zone_sets = {
 		habitat_energy
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_habitat_exotic_gases = {
@@ -259,7 +247,5 @@ zone_habitat_exotic_gases = {
 	zone_sets = {
 		habitat_energy
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }

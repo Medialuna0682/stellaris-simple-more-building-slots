@@ -30,9 +30,7 @@ zone_industrial_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_foundry_arcology = {
@@ -60,9 +58,7 @@ zone_foundry_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_factory_arcology = {
@@ -89,9 +85,7 @@ zone_factory_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_arcology = {
@@ -118,9 +112,7 @@ zone_research_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_physics_arcology = {
@@ -151,9 +143,7 @@ zone_research_physics_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_society_arcology = {
@@ -184,9 +174,7 @@ zone_research_society_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_engineering_arcology = {
@@ -217,9 +205,7 @@ zone_research_engineering_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_arcology = {
@@ -251,9 +237,7 @@ zone_unity_arcology = {
 		zone_unity_spiritualist_arcology
 		zone_unity_bio_trophy_arcology
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_spiritualist_arcology = {
@@ -285,9 +269,7 @@ zone_unity_spiritualist_arcology = {
 		zone_unity_arcology
 		zone_unity_bio_trophy_arcology
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_bio_trophy_arcology = {
@@ -319,9 +301,7 @@ zone_unity_bio_trophy_arcology = {
 		zone_unity_arcology
 		zone_unity_spiritualist_arcology
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_fortress_arcology = {
@@ -348,9 +328,7 @@ zone_fortress_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_trade_arcology = {
@@ -377,9 +355,7 @@ zone_trade_arcology = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 # Ring Worlds
@@ -401,9 +377,7 @@ zone_industrial_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_foundry_ring_world = {
@@ -422,9 +396,7 @@ zone_foundry_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_factory_ring_world = {
@@ -443,9 +415,7 @@ zone_factory_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_ring_world = {
@@ -464,9 +434,7 @@ zone_research_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_physics_ring_world = {
@@ -489,9 +457,7 @@ zone_research_physics_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_society_ring_world = {
@@ -514,9 +480,7 @@ zone_research_society_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_engineering_ring_world = {
@@ -539,9 +503,7 @@ zone_research_engineering_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_ring_world = {
@@ -565,9 +527,7 @@ zone_unity_ring_world = {
 		zone_unity_spiritualist_ring_world
 		zone_unity_bio_trophy_ring_world
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_spiritualist_ring_world = {
@@ -591,9 +551,7 @@ zone_unity_spiritualist_ring_world = {
 		zone_unity_ring_world
 		zone_unity_bio_trophy_ring_world
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_bio_trophy_ring_world = {
@@ -617,9 +575,7 @@ zone_unity_bio_trophy_ring_world = {
 		zone_unity_ring_world
 		zone_unity_spiritualist_ring_world
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_fortress_ring_world = {
@@ -638,9 +594,7 @@ zone_fortress_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_trade_ring_world = {
@@ -659,9 +613,7 @@ zone_trade_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_food_ring_world = {
@@ -680,9 +632,7 @@ zone_food_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_energy_ring_world = {
@@ -701,9 +651,7 @@ zone_energy_ring_world = {
 	inline_script = {
 		script = zones/shared_ring_world_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 # Machine (& Nanotech) Worlds
@@ -725,9 +673,7 @@ zone_industrial_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_foundry_nexus = {
@@ -746,9 +692,7 @@ zone_foundry_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_factory_nexus = {
@@ -767,9 +711,7 @@ zone_factory_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_nexus = {
@@ -788,9 +730,7 @@ zone_research_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_physics_nexus = {
@@ -813,9 +753,7 @@ zone_research_physics_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_society_nexus = {
@@ -838,9 +776,7 @@ zone_research_society_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_engineering_nexus = {
@@ -863,9 +799,7 @@ zone_research_engineering_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_nexus = {
@@ -889,9 +823,7 @@ zone_unity_nexus = {
 		zone_unity_spiritualist_nexus
 		zone_unity_bio_trophy_nexus
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_spiritualist_nexus = {
@@ -915,9 +847,7 @@ zone_unity_spiritualist_nexus = {
 		zone_unity_nexus
 		zone_unity_bio_trophy_nexus
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_bio_trophy_nexus = {
@@ -941,9 +871,7 @@ zone_unity_bio_trophy_nexus = {
 		zone_unity_nexus
 		zone_unity_spiritualist_nexus
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_fortress_nexus = {
@@ -962,9 +890,7 @@ zone_fortress_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_trade_nexus = {
@@ -983,9 +909,7 @@ zone_trade_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_minerals_nexus = {
@@ -1009,9 +933,7 @@ zone_minerals_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_betharian_nexus = {
@@ -1036,9 +958,7 @@ zone_betharian_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_rare_crystals_nexus = {
@@ -1063,9 +983,7 @@ zone_rare_crystals_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_energy_nexus = {
@@ -1084,9 +1002,7 @@ zone_energy_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_volatile_motes_nexus = {
@@ -1106,9 +1022,7 @@ zone_volatile_motes_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_exotic_gases_nexus = {
@@ -1128,9 +1042,7 @@ zone_exotic_gases_nexus = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 # Hive World
@@ -1152,9 +1064,7 @@ zone_industrial_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_foundry_hive = {
@@ -1173,9 +1083,7 @@ zone_foundry_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_factory_hive = {
@@ -1194,9 +1102,7 @@ zone_factory_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_hive = {
@@ -1215,9 +1121,7 @@ zone_research_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_physics_hive = {
@@ -1240,9 +1144,7 @@ zone_research_physics_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_society_hive = {
@@ -1265,9 +1167,7 @@ zone_research_society_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_research_engineering_hive = {
@@ -1290,9 +1190,7 @@ zone_research_engineering_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_unity_hive = {
@@ -1311,9 +1209,7 @@ zone_unity_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_fortress_hive = {
@@ -1332,9 +1228,7 @@ zone_fortress_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_trade_hive = {
@@ -1353,9 +1247,7 @@ zone_trade_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_food_hive = {
@@ -1374,9 +1266,7 @@ zone_food_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_exotic_gases_hive = {
@@ -1395,9 +1285,7 @@ zone_exotic_gases_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 
@@ -1422,9 +1310,7 @@ zone_minerals_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_betharian_hive = {
@@ -1449,9 +1335,7 @@ zone_betharian_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_rare_crystals_hive = {
@@ -1476,9 +1360,7 @@ zone_rare_crystals_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_energy_hive = {
@@ -1497,9 +1379,7 @@ zone_energy_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_volatile_motes_hive = {
@@ -1519,9 +1399,7 @@ zone_volatile_motes_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
 
 zone_spawning_hive = {
@@ -1540,7 +1418,5 @@ zone_spawning_hive = {
 	inline_script = {
 		script = zones/shared_arcology_zone_modifiers
 	}
-	inline_script = {
-		script = zones/shared_add_building_slots
-	}
+	max_buildings = 6
 }
